@@ -4,38 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "eb6812e084348307",
+        "id": "40408e8ef36873d4",
         "type": "tabs",
         "children": [
           {
-            "id": "49927a51ac852a43",
+            "id": "6fa9c0f9b363c82e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "papers/AI-accelerators/GPU vs TPU.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "GPU vs TPU"
-            }
-          },
-          {
-            "id": "ba68e760a45f8e40",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "papers/AI-accelerators/GPU vs TPU.md",
+                "file": "papers/AI-accelerators/GPU-vs-TPU(hardware).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GPU vs TPU"
+              "title": "GPU-vs-TPU(hardware)"
+            }
+          },
+          {
+            "id": "19450eac953b390e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "papers/AI-accelerators/timeloop.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "timeloop"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -92,7 +93,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "c0f4cf8da0247877",
@@ -108,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "papers/AI-accelerators/GPU vs TPU.md",
+                "file": "papers/AI-accelerators/timeloop.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +120,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "GPU vs TPU 的反向链接列表"
+              "title": "timeloop 的反向链接列表"
             }
           },
           {
@@ -127,12 +129,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "papers/AI-accelerators/GPU vs TPU.md",
+                "file": "papers/AI-accelerators/timeloop.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "GPU vs TPU 的出链列表"
+              "title": "timeloop 的出链列表"
             }
           },
           {
@@ -170,13 +172,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "papers/AI-accelerators/GPU vs TPU.md",
+                "file": "papers/AI-accelerators/timeloop.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "GPU vs TPU 的大纲"
+              "title": "timeloop 的大纲"
             }
           }
         ],
@@ -198,23 +200,24 @@
       "bases:新建数据库": false
     }
   },
-  "active": "49927a51ac852a43",
+  "active": "19450eac953b390e",
   "lastOpenFiles": [
-    "assets/Pasted image 20260513144802.png",
-    "assets",
-    "Pasted image 20260513144528.png",
-    "papers/AI-accelerators/GPU vs TPU.md",
+    "未命名 1.md",
+    "papers/AI-accelerators/GPU-vs-TPU(hardware).md",
+    "papers/AI-accelerators/timeloop.md",
     "欢迎.md",
     "创建链接.md",
-    "Pasted image 20260513120045.png",
-    "Pasted image 20260513115821.png",
-    "Pasted image 20260513114151.png",
-    "Pasted image 20260513114136.png",
-    "Pasted image 20260513113453.png",
-    "Pasted image 20260513113133.png",
-    "Pasted image 20260513112050.png",
-    "Pasted image 20260513112045.png",
-    "Pasted image 20260513110325.png",
+    "assets/Pasted image 20260513144528.png",
+    "assets/Pasted image 20260513120045.png",
+    "assets/Pasted image 20260513115821.png",
+    "assets/Pasted image 20260513114151.png",
+    "assets/Pasted image 20260513114136.png",
+    "assets/Pasted image 20260513113453.png",
+    "assets/Pasted image 20260513113133.png",
+    "assets/Pasted image 20260513112050.png",
+    "assets/Pasted image 20260513112045.png",
+    "assets/Pasted image 20260513110325.png",
+    "assets",
     "topics",
     "未命名 1.base",
     "未命名.canvas",

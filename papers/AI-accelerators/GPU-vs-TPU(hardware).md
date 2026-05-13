@@ -32,7 +32,7 @@ eg: N * N 矩阵乘法  AI= 2N^3  / N* N = N, N 更大，AI 更大
 >H100 SXM5：峰值 Tensor Core BF16 为 1,979 TFLOPS，HBM3 带宽为 3.35 TB/s，得出脊点约为每字节 591 次浮点运算。 2000/ 3.3 = 600
 
 
-![[Pasted image 20260513102423.png]]关键： 拐点，屋脊点，决定到底是内存瓶颈还是计算瓶颈
+![](../../assets/Pasted%20image%2020260513102423.png)关键： 拐点，屋脊点，决定到底是内存瓶颈还是计算瓶颈
 
 > 图中还有一个没人画出的第三区域：指令延迟受限区。你有带宽，有算力，但无法足够快地发射指令来利用它们。这正是 GPU 占用率规划（occupancy discipline）的来源，也是 TPU 编译器通过指令打包工作获得回报的地方。
 > 还不是很明白？
@@ -54,7 +54,7 @@ https://courses.grainger.illinois.edu/cs533/sp2025/notes/tpu_arch.pdf
 pro: 密度：ALU 不用管获取指令和管理寄存器，同面积能放更多ALU
 cons: 不灵活：如果填不满会浪费资源，需要高密度，大batch 来填充
 
-![[Pasted image 20260513105007.png]] 
+![](../../assets/Pasted%20image%2020260513105007.png) 
 
 
 ### 两种哲学
@@ -69,7 +69,7 @@ Google: 围绕矩阵数据流(Tile), MXU 是核心，添加向量单元，标量
 GPU： threads -> warps -> blocks ->        （cluster）-> grid
        工人  ->   32 工人  -> 车间（共享内存）->相邻园区 -> 工单
        其中SM 和blocks 解决，SM 是硬件，blocks 是软件，调度器选择不同blocks 放到SM 中
-![[Pasted image 20260513105641.png]]
+![](../../assets/Pasted%20image%2020260513105641.png)
 
 
 ### GPU 入门
@@ -82,9 +82,9 @@ SM = 标量 + 向量 + tensor core + + regfile + L1 Cache
 2. coalescing: 同一个warp 对相邻地址加载会合并为一次事务
 3. occupancy: 一个SM 保持多少个warps 运行来隐藏延时
 
-![[Pasted image 20260513110246.png]]
+![](../../assets/Pasted%20image%2020260513110246.png)
 
-![[Pasted image 20260513110325.png]]
+![](../../assets/Pasted%20image%2020260513110325.png)
 
 
 A100(2021) -> H 100(2023) -> B200 (2025)
@@ -121,9 +121,9 @@ old: block 内所有thread 等待其他所有thread 到达
 new: 可以某个warp arrive, wait 另一个warp， 能做到生产者-消费者 模式
 warp A 发起TMA 加载，mbarrier 标记到达继续执行 （producer)
 warp B 在mbarrier 等待，用WGMMA 执行矩阵乘消费数据，(consumer) 然后再另一个mbarrier 标记到达，表示空闲
-![[Pasted image 20260513112045.png]]
+![](../../assets/Pasted%20image%2020260513112045.png)
 
-![[Pasted image 20260513112050.png]]
+![](../../assets/Pasted%20image%2020260513112050.png)
 
 添加FP8
 
@@ -144,7 +144,7 @@ Hopper 让移动更明确，以数据为中心
 BlackWell 让多GPU 为一个整体
 目的：让编译器而非程序员来调度数据移动和计算
 毕竟memory 层次太多，同步异步比较难，数据结构也变化大，硬件对外暴露的细节太多了
-![[Pasted image 20260513113133.png]]
+![](../../assets/Pasted%20image%2020260513113133.png)
 
 
 ### TPU 入门
@@ -157,7 +157,7 @@ v5p 有两个tensor core = 多个MXU = 脉动阵列 + 向量 + 标量
 1. MXU 脉动阵列
 >MXU 负责执行密集矩阵运算。其数据流是权重驻留的变体，这意味着权重固定不动，激活值流过。一旦加载了权重，就通过网格流式传输激活值，累积结果从另一侧输出。当数据块适配网格时，吞吐量非常惊人。代价是，所有内容都必须针对 MXU 进行形状设计，否则 MXU 将无法发挥任何作用。
 
-![[Pasted image 20260513113453.png]]
+![](../../assets/Pasted%20image%2020260513113453.png)
 
 2. VPU: 完成向量：逐元素操作、归约、Softmax 内部计算、层归一化数学运算以及激活函数。这是一个 SIMD 风格的单元，拥有独立的寄存器文件和独立的数据通道数。
 3. **标量单元**负责控制流、地址生成以及无法在向量或矩阵单元中表达的少量运算。它规模很小。TPU 架构的核心在于，大部分芯片面积都分配给了 MXU。
@@ -173,9 +173,9 @@ ICI (Inter-Chip Interconnect) = NVLink， 带宽是4.8Tbps
 
 SparceCore: 负责MXU 不擅长的，稀疏嵌入、分散收集、以及哈希表密集型工作负载。
 
-![[Pasted image 20260513114136.png]]
+![](../../assets/Pasted%20image%2020260513114136.png)
 
-![[Pasted image 20260513114151.png]]
+![](../../assets/Pasted%20image%2020260513114151.png)
 
 #### v1
 training 看 throughput，inference serving 看 tail latency。
@@ -186,7 +186,7 @@ training 看 throughput，inference serving 看 tail latency。
    但如果 LLM 推理里出现变长、MoE、spec decode、KV cache 动态管理等复杂行为，TPU 静态编排确实可能浪费、变慢或需要 padding/bucketing/fallback。确定性执行保证的是“少抖动”，不是“永远最低延迟”。
 
 Floorplan of a TPU Die
-![[Pasted image 20260513115821.png]]
+![](../../assets/Pasted%20image%2020260513115821.png)
 
 控制单元只有2% 面积
 
@@ -217,7 +217,7 @@ v7 互联优势是nvlink 64倍
 
 TPU 系列一直押注于编译器调度的确定性、脉动矩阵密度以及以结构为先的扩展规模，这些因素比 SIMT 灵活性、缓存层次结构和单节点优化更能产生协同效应。
 
-![[Pasted image 20260513120045.png]]
+![](../../assets/Pasted%20image%2020260513120045.png)
 
 ### 对比
 两个架构如何更相似
@@ -240,8 +240,3 @@ TPU 系列一直押注于编译器调度的确定性、脉动矩阵密度以及�
 1. 内存墙是主角，如何让数据始终保持在计算附近
 2. 到底依靠程序员还是编译器，现在更多相信运行前信息，依靠编译器
 3. 互联规模关键
-
-
-![](Pasted%20image%2020260513144528.png)
-
-![](../../assets/Pasted%20image%2020260513144802.png)
