@@ -31,6 +31,7 @@ regfile ->  片上SRAM -> Memory/HBM -> nvlink -> 光纤
 eg: N * N 矩阵乘法  AI= 2N^3  / N* N = N, N 更大，AI 更大
 >H100 SXM5：峰值 Tensor Core BF16 为 1,979 TFLOPS，HBM3 带宽为 3.35 TB/s，得出脊点约为每字节 591 次浮点运算。 2000/ 3.3 = 600
 
+[roofline](roofline.md) 介绍
 
 ![](../../assets/Pasted%20image%2020260513102423.png)关键： 拐点，屋脊点，决定到底是内存瓶颈还是计算瓶颈
 
@@ -39,6 +40,8 @@ eg: N * N 矩阵乘法  AI= 2N^3  / N* N = N, N 更大，AI 更大
 
 
 ### 3种模式
+
+参考[DNN-survey](DNN-survey.md)
 1. SIMD: CPU SIMD or GPU 向量
 	1. easy
 	2. 如果填不满，必须mask, or stall
@@ -240,3 +243,45 @@ TPU 系列一直押注于编译器调度的确定性、脉动矩阵密度以及�
 1. 内存墙是主角，如何让数据始终保持在计算附近
 2. 到底依靠程序员还是编译器，现在更多相信运行前信息，依靠编译器
 3. 互联规模关键
+
+### 启发
+**ISA 还是需要暴露更多硬件细节，特别是需要能软件显示控制一些数据搬运位置和异步同步机制等** 
+
+
+
+## 我自己的压缩总结
+
+### 1. 这篇文章真正想说什么？
+
+GPU 和 TPU 不是简单谁强谁弱，而是两条路线：
+GPU 从线程灵活性出发，逐步把数据移动显式化、编译器化；
+TPU 从矩阵数据流出发，牺牲动态灵活性，换取密度、确定性和规模化互联。
+
+### 2. 我现在形成的三个判断
+
+1. AI 加速器的主战场不是单纯算力，而是数据移动组织。
+2. GPU 和 TPU 正在某些方向收敛：GPU 越来越显式管理数据流，TPU 需要补足非矩阵/稀疏/动态部分。
+3. LLM serving 不是纯静态矩阵计算，因此 CPU/GPU/TPU/NPU 的协同边界会越来越重要。
+
+### 3. 和 AME/IME 的关系
+
+这篇文章提醒我：AME vs IME 不能只比较矩阵单元本身，而要比较：
+- 数据从哪里来；
+- 中间结果放在哪里；
+- 编译器能不能安排 tile；
+- 动态控制流由谁处理；
+- decode / prefill / sampling / KV cache 分别适合哪种执行模型。
+
+### 4. 我还没搞懂的问题
+
+1. TPU VMEM 的软件管理具体在编译器 IR / runtime 中如何表达？
+2. GPU TMA/WGMMA/tcgen05 和 TPU 的静态数据流到底差多远？
+3. 对 batch=1 decode，TPU 的确定性优势和填充浪费哪个更重要？
+
+### 5. 后续要查的资料
+
+- TPU v1 paper
+- TPU v4 / v5 / v6 / v7 architecture docs
+- NVIDIA Hopper TMA / WGMMA docs
+- Blackwell tcgen05 / TMEM 相关资料
+- XLA / Pallas / Triton 对数据移动的表达方式
