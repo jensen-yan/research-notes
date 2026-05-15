@@ -1,4 +1,5 @@
 https://ieeexplore.ieee.org/document/8695666/figures#figures
+https://accelergy.mit.edu/timeloop.pdf
   
 Timeloop: A Systematic Approach to DNN Accelerator Evaluation
 
@@ -29,14 +30,14 @@ mapping 包括：数据如何切块，如何调度，放到哪里存储，哪些
 把一个 DNN layer 的 7D loop nest，分配到多级存储和 PE 阵列上的具体方式。
 核心决策：
 
-|决策|含义|
-|---|---|
-|**Tiling / blocking**|每一级存储放多大的 tile|
-|**Loop permutation**|loop 顺序怎么排，决定数据复用模式|
-|**Spatial partitioning**|哪些维度展开到 PE 阵列上|
-|**Temporal scheduling**|哪些维度在一个 PE / RF / buffer 内按时间循环|
-|**Bypass**|某些 tensor 是否跳过某一级存储，不占容量|
-|**Dataflow constraints**|例如 row-stationary / weight-stationary 本质是一组 mapping 约束|
+| 决策                       | 含义                                                     |
+| ------------------------ | ------------------------------------------------------ |
+| **Tiling / blocking**    | 每一级存储放多大的 tile                                         |
+| **Loop permutation**     | loop 顺序怎么排，决定数据复用模式                                    |
+| **Spatial partitioning** | 哪些维度展开到 PE 阵列上                                         |
+| **Temporal scheduling**  | 哪些维度在一个 PE / RF / buffer 内按时间循环                        |
+| **Bypass**               | 某些 tensor 是否跳过某一级存储，不占容量                               |
+| **Dataflow constraints** | 例如 row-stationary / weight-stationary 本质是一组 mapping 约束 |
 
 论文用 Eyeriss 举例：硬件组织包括 256 个 PE、每个 PE 一个 MAC 和私有 256-entry RF，一个 128KB shared global buffer，以及 DRAM；但光有这些还不够，还要用 mapspace constraints 描述 Eyeriss 的 row-stationary dataflow
 #### 怎么搜索
@@ -75,6 +76,34 @@ Timeloop 不是周期精确模拟器。它利用 DNN 计算和访存模式比较
 - 总 latency 取各硬件组件 isolated cycles 的最大值
 
 所以它本质上更像一个**结构化 roofline / bottleneck model**
+
+### 思考：功耗估计
+方案：
+**总能耗 = Σ 每个硬件组件的访问次数 × 该组件单次访问能耗**
+
+这里的“每个组件”包括 MAC、RF/SRAM/DRAM、片上网络、address generator、partial-sum accumulation 等。
+
+- tile 分析，计算数据搬运次数；
+- tile 访问变成组件访问，MAC/SRAM/regfile . 还有管SRAM 的bank 冲突等
+- 每次访问计算能耗， 最后求和
+	- memory 访问，最贵
+	- 算数单元，便宜
+	- wire/network. 片上大SRAM , 中间
+
+
+局限性：感觉timeloop 可能比较适合DNN, LLM 推理的不确定。 毕竟DNN 全是对应的乘累加，而LLM 还有大量的数据搬运和向量等。
+- 适合：大举证 + 规则算子：prefill
+- 不适合：decode 和非GEMM 算子
+> 低 reuse workload 被 DRAM 能耗主导，高 reuse workload 才更受 on-chip 组件影响。
+- timeloop 所以选择RS 这种复用方式来提高数据复用性
+
+不过要重建GEM5 的mcPat, 需要一定工作量
+
+减少功耗几个方法：
+1. 减少控制逻辑
+2. 减少DRAM 访问次数
+3. 减少片上大SRAM 访问次数
+4. 减少广播次数
 
 ## 10. 局限性
 
