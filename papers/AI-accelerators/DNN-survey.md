@@ -14,7 +14,7 @@ Temporal: 都是软件+硬件来让ALU 从全局寄存器中读数据，计算�
 Spatial 主要让PE=ALU + control + Regfile 为核心，PE 能直接存储数据，同时PE 之间能相互流动数据
 
 感觉Spatial 能更有利于，让数据更多的停留在计算单元附近，同时减少数据搬运！
-[diannao](diannao.md)  就是比较早的使用spatial 的加速器
+[diannao](diannao.html)  就是比较早的使用spatial 的加速器
 
 
 activations 就是输入，输出数据 or feature map

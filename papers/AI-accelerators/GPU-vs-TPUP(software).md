@@ -16,7 +16,7 @@
 这篇文章最核心想说的是：
 
 > 核心是在比较 **NVIDIA GPU 软件栈** 和 **Google TPU/JAX/Pallas 软件栈**，作者明显站在 TPU/Pallas 一边。
-上一篇[GPU-vs-TPU(hardware)](GPU-vs-TPU(hardware).md) 介绍了硬件差异
+上一篇[GPU-vs-TPU(hardware)](GPU-vs-TPU%28hardware%29.html) 介绍了硬件差异
  
 作者认为：**GPU/CUDA/Triton 的优势在生态和低门槛，但 TPU/JAX/Pallas 的优势在“组合性、编译器托管复杂度、确定性、规模化训练效率”，更适合大规模生产 ML workload。**
 
@@ -289,4 +289,3 @@ GPU 优势
 相当于GPU pytorch 类似python 的JIT 模式，快速迭代；而GPU 有编译开销，长时间运行后更快
 
 不要再以线程和线程束为单位思考，要想着数据块和流水线
-

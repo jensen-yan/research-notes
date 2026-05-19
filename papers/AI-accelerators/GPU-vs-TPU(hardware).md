@@ -31,7 +31,7 @@ regfile ->  片上SRAM -> Memory/HBM -> nvlink -> 光纤
 eg: N * N 矩阵乘法  AI= 2N^3  / N* N = N, N 更大，AI 更大
 >H100 SXM5：峰值 Tensor Core BF16 为 1,979 TFLOPS，HBM3 带宽为 3.35 TB/s，得出脊点约为每字节 591 次浮点运算。 2000/ 3.3 = 600
 
-[roofline](roofline.md) 介绍
+[roofline](roofline.html) 介绍
 
 ![](../../assets/Pasted%20image%2020260513102423.png)关键： 拐点，屋脊点，决定到底是内存瓶颈还是计算瓶颈
 
@@ -41,7 +41,7 @@ eg: N * N 矩阵乘法  AI= 2N^3  / N* N = N, N 更大，AI 更大
 
 ### 3种模式
 
-参考[DNN-survey](DNN-survey.md)
+参考[DNN-survey](DNN-survey.html)
 1. SIMD: CPU SIMD or GPU 向量
 	1. easy
 	2. 如果填不满，必须mask, or stall

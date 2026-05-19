@@ -1,6 +1,6 @@
 ## 整体思维导图
 
-[XSAI](XSAI.md)  描述了当前我们使用AME 架构的基础设计
+[XSAI](XSAI.html)  描述了当前我们使用AME 架构的基础设计
 
 from 王曦爽老师
 
