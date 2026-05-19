@@ -9,8 +9,8 @@
 ## Notes
 
 - [DNN survey](./DNN-survey.html)
-- [GPU vs TPU: hardware](./GPU-vs-TPU%28hardware%29.html)
-- [GPU vs TPU: software](./GPU-vs-TPUP%28software%29.html)
+- [GPU vs TPU: hardware](./GPU-vs-TPU-hardware.html)
+- [GPU vs TPU: software](./GPU-vs-TPU-software.html)
 - [TPU](./TPU.html)
 - [DianNao](./diannao.html)
 - [Roofline](./roofline.html)
