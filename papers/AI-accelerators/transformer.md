@@ -68,9 +68,16 @@ Attention 去和别人交流收集上下文，FFN 来自己消化一下
 
 #### 核心：Scaled Dot-Product Attention
 input:
-- Query: 我要找什么信息
-- Key： 每个位置标志
-- Value： 每个位置携带的信息
+- Query: 我要找什么信息，是当前单词的表示形式，一般关注当前token 的query.
+- Key：  是序列中所有单词的标签，是我们找单词的对照物
+- Value： 是单词的实际表示
+有点像你拿着query 便签，去文件柜中找到对应key 的value 内容。自注意力层会产生每个文件夹的相关度分数。
+![](../../assets/Pasted%20image%2020260518182853.png)
+> 注意这个注意力分数是动态算出来的，不是在模型参数中的。模型参数是被训练为：如何从当前token 表示抽出key or  注意力分数。注意力分数 = Query * Key, 其中某个key_i = input i * Wk
+
+![](../../assets/Pasted%20image%2020260518184049.png)
+然后把每个token 的value * 每个相关度分数/ 注意力分数，求和作为这一层输出
+
 公式是：
 ```
 Attention(Q, K, V) = softmax(QKᵀ / sqrt(d_k)) V
@@ -114,9 +121,15 @@ d_k key 向量长度， = 64， 8个head, 每个head 分别处理64维子空间
 单attention: 一次注意关注一种关系
 多attention: 多次注意关注多种关系
 
-#### 如何关注token 顺序？
+#### 如何关注token 顺序？ 位置编码
 它没有RNN 这种循环卷积，通过添加  位置编码 Position Encoding, 随着input 一起进入
 input = token embeding + position encoding
+参考 https://blog.csdn.net/qq_36667170/article/details/124336971  图解位置编码
+最简单想法1：为每个位置添加[0, 1] 范围数字，0=start, 1=end, 但是句子太长间隔太短。
+想法2：1=单词1， 2=单词2， 固定步长增加，但是数字会变得很大，并且模型可能遇到比训练时候更长的句子。
+希望：每个时间步编码相同，并且两个时间步 距离相同，不受句子长度影响。
+
+作者方案：用d 维向量，不在模型中，而是附加到输入token 中
 PE 采用固定的 sin/cos 位置编码：
 ```
 PE(pos, 2i)   = sin(pos / 10000^(2i / d_model))
@@ -126,6 +139,9 @@ PE(pos, 2i+1) = cos(pos / 10000^(2i / d_model))
 - 不引入额外可学习参数。
 - 不同维度对应不同频率。
 - 理论上可以外推到比训练时更长的序列，更好可扩展
+
+直观理解：如果用2进制表示数字，那么pos0 每2个翻转一次，pos1 每4个翻转，pos2 每8个翻转
+而用正弦函数，某个位置也是翻转。用多个不同频率的sin,cos 组合表示一个token 位置。（不同频率的sin 函数可以表征不同的位置范围，例如高频区分细粒度相邻token, 低频表示长粒度的）
 
 
 #### 为何适合并行？
@@ -162,11 +178,6 @@ insight: 突然觉得这个全局注意力机制，还有点像TAGE 的各种历
 所以更准确说：
 prefill 并行性来自输入token 都已经知道
 
----
-
-## 4. 和我当前工作的关系
-
-- 
 
 ---
 
@@ -187,3 +198,60 @@ prefill 并行性来自输入token 都已经知道
 
 https://www.zhihu.com/question/445556653/answer/3254012065
 这个回答也还可以
+
+### 和现代LLM 差异
+先回顾下原始encoder 作用
+我之前错误理解：需要先把一段人类语言 分词 变成token, 然后每个token映射为一段数学向量，相当于映射到一个隐式空间中。这个都是encoder 之前的工作，不是encoder 自己的工作。
+encoder 核心是：每个输入token 都能看见完整输入序列，形成上下文表示
+decoder 核心：每个token 只能看到自己左边的token, 用来做自回归生成。
+相当于：读入源语言-> 构建源语言记忆 -> 逐步翻译目标语言。
+相当于decoder query 去查encoder 输出的key/value
+
+现代LLM:
+```
+input： prompt tokens + 已生成tokens
+embedding/ position encoding
+decoder-only transfomer + causal masking
+输出下一个token 概率分布
+采样、选择下一个token
+```
+相当于在一长串上下文中，每层重写每个token 上下文表示，并不断续写
+
+为何要KV Cache?
+生成token t 时候，当前query 会和前面所有token 的key 做匹配，然后加权汇聚前面所有value, 而之前所有token 的K/V 不会变，所以把每一层，每个历史token 的K/V 缓存复用
+
+#### 什么是自注意力/self-attention?
+假设我们要翻译下边这句话：  
+`”The animal didn't cross the street because it was too tired”`
+这里`it`指的是什么？是`street`还是`animal`？人理解起来很容易，但是对算法来讲就不那么容易了。
+自注意力就是：看输入位置中其他位置的单词，试图寻找一种对当前单词更好的编码方式。
+RNN 是把之前的隐藏状态 和 当前位置的输入 结合；
+Transformer 是 把对其他单词的“理解” 嵌入到我们当前单词中，相当于对输入句子每个单词打分，分数决定我要对其他位置的单词给予多少关注度。
+注意力分数= query * key  点积
+然后让每个value  * 这个注意力分数，把其他不相干的单词扔掉
+
+
+#### GPT2 介绍
+https://lolitasian.blog.csdn.net/article/details/125529598    图解GPT2 翻译！
+GPT2 不同规模，主要差异在decoder 层数不同（from 12 to 48 层）
+GPT2 就是使用的transfomer 的decoder 模块；BERT 使用的encoder 模块
+GPT2 会吧每个输出token ， 添加到输入token, 作为新序列来生成下一个token, 这是自动回归（BERT 没有）
+此外，自注意力层有个关键差异：只关注之前的内容，把后面内容mask 了，不参与到自注意力计算。
+![](../../assets/Pasted%20image%2020260518181311.png)
+Transformer的自注意力和GPT-2的屏蔽式自注意力之间是有明显的区别的。一个正常的自注意计算在计算某位置的时候允许模型关注其右边的信息，屏蔽式自注意则不能关注到右侧信息：
+此外，也把Transformer 的decoder 组件中的第二个自注意力层给去掉了。
+
+此外，如果一直选择第一个token, 可能重复，该top-k 可以从k 个候选结果选其他的那个
+
+embbding 矩阵也是预训练一部分，每行表示一个词语，标志一些含义信息。
+![](../../assets/Pasted%20image%2020260518182119.png)
+位置编码矩阵也是GPT-2模型的一部分，它包含输入中1024个位置的每个位置编码向量。
+输入 = prompt 的embbding 矩阵 + PE 矩阵
+
+
+
+相关资料：
+https://jalammar.github.io/illustrated-gpt2/
+
+https://blog.csdn.net/qq_36667170/article/details/124359818  图解transformer 好文！
+https://github.com/karpathy/minGPT

@@ -1,2 +1,10 @@
 .DS_Store
-.obsidian/workspace*.json
+
+# Obsidian local state and machine-specific config
+.obsidian/
+
+# Personal daily notes
+daily/
+
+# Local QA / generated preview artifacts
+**/qa-*.png
