@@ -1,21 +1,19 @@
 <section class="slide accent" data-layout="SWISS-COVER-ASCII" data-animate="hero">
-  <div class="canvas-card">
-    <canvas class="ascii-bg" aria-hidden="true"></canvas>
-    <div class="chrome-min">
-      <div class="l">AI ACCELERATORS · FIELD NOTE 01</div>
-      <div class="r">DATAFLOW · 2026 · 01 / 20</div>
-    </div>
-
-    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:2.6vh">
-      <div data-anim="kicker" class="t-meta" style="color:rgba(255,255,255,.78);letter-spacing:.22em">FROM CACHE TO DATAFLOW</div>
-
-      <h1 data-anim="title" style="align-self:center;font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(10.2vw,17vh);line-height:.96;letter-spacing:-.025em;color:#fff">从 Cache<br/>到 <span style="font-style:italic;font-weight:300">Dataflow</span></h1>
-
-      <div data-anim="bottom" style="display:grid;grid-template-rows:auto auto;gap:1.6vh;border-top:1px solid rgba(255,255,255,.22);padding-top:2vh">
-        <div data-anim="lead" class="lead" style="max-width:58ch;color:rgba(255,255,255,.86);font-weight:300">AI 加速器的数据移动趋势，以及 XSAI/AME 在这个趋势里的位置。</div>
-        <div style="display:flex;justify-content:space-between;align-items:end">
-          <div class="t-meta" style="color:rgba(255,255,255,.6)">GROUP SHARE · DRAFT V1</div>
-          <div class="t-meta" style="color:rgba(255,255,255,.6)">→ swipe / arrow keys</div>
+  <div class="canvas-card" style="padding:0">
+    <div class="cover-split">
+      <div class="cover-ascii">
+        <canvas class="ascii-bg" aria-hidden="true"></canvas>
+        <div class="cover-grid-labels">
+          <span>MEMORY</span><span>TILE</span><span>DATAFLOW</span><span>AME</span>
+        </div>
+      </div>
+      <div class="cover-content">
+        <div data-anim="kicker" class="t-meta" style="color:rgba(255,255,255,.78);letter-spacing:.22em">FROM CACHE TO DATAFLOW</div>
+        <h1 data-anim="title" style="align-self:center;margin-left:5vw;font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(8.8vw,14.5vh);line-height:.96;letter-spacing:-.025em;color:#fff">从 Cache<br/>到 <span style="font-style:italic;font-weight:300">Dataflow</span></h1>
+        <div data-anim="meta" class="cover-meta">
+          <div>AI 加速器入门</div>
+          <div>CPU 直觉迁移</div>
+          <div>XSAI / AME 思考</div>
         </div>
       </div>
     </div>
@@ -26,47 +24,76 @@
   <div class="canvas-card">
     <div class="chrome-min">
       <div class="l">OPENING · BOTTLENECK</div>
-      <div class="r">02 / 20</div>
+      <div class="r">02 / 34</div>
     </div>
-
-    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
-      <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
-        <div class="t-meta">HOOK</div>
-        <h2 class="h-xl-zh" style="font-size:min(5.6vw,10vh)">缺的不是 MAC，<br/>是喂饱 MAC 的数据路径。</h2>
+    <div class="statement-grid" style="grid-template-columns:1fr 1.05fr;gap:4vw">
+      <div data-anim="statement" style="display:flex;flex-direction:column;justify-content:center">
+        <div class="t-meta">THE BOTTLENECK MOVED</div>
+        <h2 class="h-xl-zh" style="font-size:min(5.4vw,9.6vh)">缺的不是 MAC，<br/>是喂饱 MAC 的数据路径。</h2>
       </div>
-
-      <div data-anim="up" style="display:grid;grid-template-columns:1.1fr 1.8fr;gap:3vw;align-items:stretch">
-        <div class="card-accent" style="padding:3vh 2vw;display:flex;flex-direction:column;justify-content:space-between">
-          <div class="t-meta" style="color:var(--accent-on)">MAIN CLAIM</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(5.8vw,10.2vh);line-height:.96;letter-spacing:-.025em">DATA<br/>MOVES</div>
-          <div class="body-sm" style="opacity:.86">矩阵单元越大，供数路径越容易成为真正瓶颈。</div>
-        </div>
-
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--grey-2);border-bottom:1px solid var(--grey-2)">
-          <div style="padding:2.2vh 1.2vw;border-right:1px solid var(--grey-2);display:flex;flex-direction:column;gap:1vh">
-            <div class="t-meta">01</div>
-            <div class="h-md">HBM / DRAM</div>
-            <div class="body-sm">容量大，距离远，搬运贵。</div>
-          </div>
-          <div style="padding:2.2vh 1.2vw;border-right:1px solid var(--grey-2);display:flex;flex-direction:column;gap:1vh">
-            <div class="t-meta">02</div>
-            <div class="h-md">L2 / SRAM</div>
-            <div class="body-sm">更近，但仍要考虑带宽和竞争。</div>
-          </div>
-          <div style="padding:2.2vh 1.2vw;border-right:1px solid var(--grey-2);display:flex;flex-direction:column;gap:1vh">
-            <div class="t-meta">03</div>
-            <div class="h-md">Scratchpad</div>
-            <div class="body-sm">软件显式声明局部性。</div>
-          </div>
-          <div style="padding:2.2vh 1.2vw;display:flex;flex-direction:column;gap:1vh">
-            <div class="t-meta">04</div>
-            <div class="h-md">Tensor Core</div>
-            <div class="body-sm">只有被喂饱时才有意义。</div>
-          </div>
-        </div>
+      <div data-anim="up" style="display:grid;grid-template-rows:repeat(4,1fr);gap:1vh">
+        <div class="card-fill" style="padding:2vh 1.6vw"><div class="t-meta">01 · DRAM / HBM</div><div class="body-sm" style="margin-top:.8vh">容量大，但片外搬运贵。</div></div>
+        <div class="card-fill" style="padding:2vh 1.6vw"><div class="t-meta">02 · L2 / SRAM</div><div class="body-sm" style="margin-top:.8vh">更近，但仍要考虑带宽竞争。</div></div>
+        <div class="card-accent" style="padding:2vh 1.6vw"><div class="t-meta" style="color:var(--accent-on)">03 · SCRATCHPAD / VMEM</div><div class="body-sm" style="margin-top:.8vh;opacity:.88">软件显式声明局部性。</div></div>
+        <div class="card-fill" style="padding:2vh 1.6vw"><div class="t-meta">04 · TENSOR CORE / MXU</div><div class="body-sm" style="margin-top:.8vh">只有数据准时到达，算力才是真的。</div></div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div data-anim="up" class="t-meta" style="border-top:1px solid var(--grey-2);padding-top:1.4vh">算力不是孤立指标。数据路径决定矩阵单元能否持续工作。</div>
+<section class="slide light" data-layout="S19" data-animate="four-cards">
+  <div class="canvas-card">
+    <div class="chrome-min">
+      <div class="l">CPU BASELINE · UNKNOWN FUTURES</div>
+      <div class="r">03 / 34</div>
+    </div>
+    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh;border-top:3px solid var(--accent);padding-top:2vh">
+      <div class="t-meta">WHY CPU HARDWARE IS SO DYNAMIC</div>
+      <h2 class="h-xl-zh">CPU 的敌人是不确定性。</h2>
+    </div>
+    <div data-anim="up" style="display:grid;grid-template-columns:repeat(5,1fr);gap:1vw;align-items:stretch;margin-top:4vh">
+      <div class="card-fill" style="padding:2.4vh 1.2vw"><div class="t-meta">BRANCH</div><div class="h-md" style="margin-top:1vh">猜路</div><div class="body-sm" style="margin-top:1vh">下一条控制流经常运行时才知道。</div></div>
+      <div class="card-accent" style="padding:2.4vh 1.2vw"><div class="t-meta" style="color:var(--accent-on)">OoO</div><div class="h-md" style="margin-top:1vh">绕行</div><div class="body-sm" style="margin-top:1vh;opacity:.86">前面卡住时，运行时找 ready 工作。</div></div>
+      <div class="card-fill" style="padding:2.4vh 1.2vw"><div class="t-meta">CACHE</div><div class="h-md" style="margin-top:1vh">猜局部性</div><div class="body-sm" style="margin-top:1vh">硬件观察历史，留下可能复用的 line。</div></div>
+      <div class="card-fill" style="padding:2.4vh 1.2vw"><div class="t-meta">PREFETCH</div><div class="h-md" style="margin-top:1vh">猜地址</div><div class="body-sm" style="margin-top:1vh">根据模式提前请求未来数据。</div></div>
+      <div class="card-ink" style="padding:2.4vh 1.2vw"><div class="t-meta">COHERENCE</div><div class="h-md" style="margin-top:1vh">对齐世界</div><div class="body-sm" style="margin-top:1vh;opacity:.86">多核共享内存抽象需要硬件维持。</div></div>
+    </div>
+    <div data-anim="up" style="border-top:1px solid var(--grey-2);padding-top:1.8vh;margin-top:4vh;font-family:var(--sans),var(--sans-zh);font-size:max(15px,1.14vw);line-height:1.55;color:var(--text-primary);font-weight:400">CPU 的很多面积和功耗，不是在做算术，而是在让“不知道未来”的通用程序也跑得快。</div>
+  </div>
+</section>
+
+<section class="slide light" data-layout="S08" data-animate="duo-mirror">
+  <div class="canvas-card">
+    <div class="chrome-min">
+      <div class="l">CPU BASELINE · OoO</div>
+      <div class="r">04 / 34</div>
+    </div>
+    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
+      <div class="t-meta">RUNTIME SCHEDULING</div>
+      <h2 class="h-xl-zh">乱序调度在隐藏什么？</h2>
+    </div>
+    <div data-anim="up" class="duo-compare" style="margin-top:4vh">
+      <div class="col">
+        <div class="col-tag"><span class="num">01</span> IN ORDER VIEW</div>
+        <div class="col-ttl">一条 miss<br/>卡住后面</div>
+        <ul class="col-list">
+          <li><span class="mono">load A</span> miss，等待内存</li>
+          <li><span class="mono">add B</span> 明明不依赖 A</li>
+          <li><span class="mono">mul C</span> 也已经 ready</li>
+          <li><span class="mono">store D</span> 需要按顺序提交</li>
+        </ul>
+      </div>
+      <div class="vrule"></div>
+      <div class="col accent">
+        <div class="col-tag"><span class="num">02</span> OoO VIEW</div>
+        <div class="col-ttl">运行时找<br/>独立工作</div>
+        <div class="col-desc">乱序不是魔法，而是硬件 scheduler / rename / ROB 在运行时寻找仍然 ready、可以绕过长延迟的工作。</div>
+        <ul class="col-list">
+          <li>适合依赖和地址运行时才清楚</li>
+          <li>正确性由硬件动态维护</li>
+          <li>面积、功耗、验证复杂度都很高</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -74,35 +101,70 @@
 <section class="slide light" data-layout="S08" data-animate="duo-mirror">
   <div class="canvas-card">
     <div class="chrome-min">
-      <div class="l">TRANSFORMER · WORKLOAD SHAPE</div>
-      <div class="r">03 / 20</div>
+      <div class="l">AI KERNELS · GRANULARITY</div>
+      <div class="r">05 / 34</div>
     </div>
-
     <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
-      <div class="t-meta">CONTEXT</div>
+      <div class="t-meta">THE GRANULARITY CHANGED</div>
+      <h2 class="h-xl-zh">AI kernel 的敌人是数据太大。</h2>
+    </div>
+    <div data-anim="up" class="duo-compare" style="margin-top:4vh">
+      <div class="col">
+        <div class="col-tag"><span class="num">CPU</span> BYTE / CACHE LINE</div>
+        <div class="col-ttl">小粒度<br/>难预测</div>
+        <ul class="col-list">
+          <li>分支和地址经常运行时才知道</li>
+          <li>load/store 粒度小</li>
+          <li>局部性由硬件 cache 透明发现</li>
+          <li>追求低延迟和通用性</li>
+        </ul>
+      </div>
+      <div class="vrule"></div>
+      <div class="col accent">
+        <div class="col-tag"><span class="num">AI</span> TILE / TENSOR</div>
+        <div class="col-ttl">大粒度<br/>可编排</div>
+        <ul class="col-list">
+          <li>shape / loop / stride 更可预测</li>
+          <li>一次处理固定大小 tile</li>
+          <li>局部性可以由软件显式声明</li>
+          <li>追求吞吐、复用和确定性</li>
+        </ul>
+      </div>
+    </div>
+    <div data-anim="up" class="t-meta" style="border-top:1px solid var(--grey-2);padding-top:1.6vh;margin-top:3vh">当对象从几个 byte 变成一个 tile，局部性就可以成为编译器和 runtime 的计划。</div>
+  </div>
+</section>
+
+<section class="slide light" data-layout="S08" data-animate="duo-mirror">
+  <div class="canvas-card">
+    <div class="chrome-min">
+      <div class="l">TRANSFORMER · WORKLOAD SHAPE</div>
+      <div class="r">06 / 34</div>
+    </div>
+    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
+      <div class="t-meta">FROM SEQUENCE TO TENSOR</div>
       <h2 class="h-xl-zh">Transformer 把序列问题变成 tensor 问题。</h2>
     </div>
-
-    <div data-anim="up" class="duo-compare" style="margin-top:5vh">
+    <div data-anim="up" class="duo-compare">
       <div class="col accent">
-        <div class="col-tag"><span class="num">A</span> PREFILL</div>
-        <div class="col-ttl">高并行<br/>高复用</div>
-        <div class="col-desc">输入 token 已知，attention 和 FFN 主干可以组织成大块矩阵计算。</div>
+        <div class="col-tag"><span class="num">01</span> PREFILL</div>
+        <div class="col-ttl">大矩阵<br/>高复用</div>
+        <div class="col-desc">输入 token 已知，可以较大程度并行，attention / FFN 形成大块 tensor 计算。</div>
         <ul class="col-list">
-          <li>适合 GEMM / attention tile</li>
-          <li>更容易喂饱矩阵阵列</li>
-          <li>first-token latency 主要受长上下文影响</li>
+          <li>GEMM / batched GEMM</li>
+          <li>并行高、tile 复用强</li>
+          <li>适合 tensor core / AME</li>
         </ul>
       </div>
       <div class="vrule"></div>
       <div class="col">
-        <div class="col-tag"><span class="num">B</span> DECODE</div>
-        <div class="col-ttl">低 batch<br/>系统问题</div>
+        <div class="col-tag"><span class="num">02</span> DECODE</div>
+        <div class="col-ttl">逐 token<br/>系统问题</div>
         <div class="col-desc">逐 token 自回归，KV cache 持续增长，动态控制和访存成为主角。</div>
         <ul class="col-list">
-          <li>更像 GEMV / 小 batch GEMM</li>
+          <li>GEMV / 小 batch</li>
           <li>KV cache read/write 访存重</li>
-          <li>sampling、routing、metadata 需要 CPU/系统协同</li>
+          <li>sampling / routing 需要灵活控制</li>
         </ul>
       </div>
     </div>
@@ -116,25 +178,77 @@
     </div>
     <div data-anim="kpi" class="image-hero-body">
       <div>
-        <div class="t-meta">ROOFLINE · KEY IDEA</div>
-        <h2 class="h-md" style="margin-top:1vh">第一性约束：算力与带宽共同决定上限。</h2>
-        <p class="body" style="margin-top:1.6vh">一个 kernel 能否吃满峰值算力，取决于它每搬 1 byte 数据能做多少计算。</p>
+        <div class="t-meta">ROOFLINE · TWO ROOFS</div>
+        <h2 class="h-md" style="margin-top:1vh">Roofline 只问两个问题。</h2>
+        <p class="body" style="margin-top:1.6vh">机器能算多快？数据能喂多快？最终速度取决于更矮的那块屋顶。</p>
       </div>
       <div class="image-hero-stats">
         <div class="stat-card thin">
-          <div class="stat-label">X AXIS</div>
-          <div class="stat-nb" style="font-size:3vw">OI</div>
-          <div class="stat-note">Operational Intensity</div>
+          <div class="stat-label">COMPUTE</div>
+          <div class="stat-nb" style="font-size:3vw">PEAK</div>
+          <div class="stat-note">峰值算力水平线。</div>
         </div>
         <div class="stat-card thin accent-top">
-          <div class="stat-label">RIDGE</div>
-          <div class="stat-nb" style="font-size:3vw">BOUND</div>
-          <div class="stat-note">内存瓶颈与计算瓶颈的分界。</div>
+          <div class="stat-label">BANDWIDTH</div>
+          <div class="stat-nb" style="font-size:3vw">SLOPE</div>
+          <div class="stat-note">带宽限制斜线。</div>
         </div>
         <div class="stat-card thin">
-          <div class="stat-label">DESIGN</div>
+          <div class="stat-label">RIDGE</div>
+          <div class="stat-nb" style="font-size:3vw">POINT</div>
+          <div class="stat-note">memory-bound 与 compute-bound 分界。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide light" data-layout="S19" data-animate="four-cards">
+  <div class="canvas-card">
+    <div class="chrome-min">
+      <div class="l">ROOFLINE · OPERATIONAL INTENSITY</div>
+      <div class="r">08 / 34</div>
+    </div>
+    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh;border-top:3px solid var(--accent);padding-top:2vh">
+      <div class="t-meta">OI MEANS REUSE</div>
+      <h2 class="h-xl-zh">Operational Intensity 是复用能力。</h2>
+    </div>
+    <div data-anim="up" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1vw;align-items:stretch;margin-top:4vh">
+      <div class="card-fill" style="padding:2.4vh 1.4vw"><div class="t-meta">MEMCPY / ADD</div><div class="h-md" style="margin-top:1vh">复用低</div><div class="body-sm" style="margin-top:1vh">每个元素读一次、算很少、写一次，通常带宽受限。</div></div>
+      <div class="card-fill" style="padding:2.4vh 1.4vw"><div class="t-meta">GEMV</div><div class="h-md" style="margin-top:1vh">中低</div><div class="body-sm" style="margin-top:1vh">batch 小时更像 memory/cache 问题。</div></div>
+      <div class="card-accent" style="padding:2.4vh 1.4vw"><div class="t-meta" style="color:var(--accent-on)">GEMM</div><div class="h-md" style="margin-top:1vh">复用高</div><div class="body-sm" style="margin-top:1vh;opacity:.86">A/B tile 可以在近端被反复消费。</div></div>
+      <div class="card-ink" style="padding:2.4vh 1.4vw"><div class="t-meta">ATTENTION</div><div class="h-md" style="margin-top:1vh">混合</div><div class="body-sm" style="margin-top:1vh;opacity:.86">矩阵、reduction、KV cache、调度混在一起。</div></div>
+    </div>
+    <div data-anim="up" style="border-top:1px solid var(--grey-2);padding-top:1.8vh;margin-top:3vh;font-family:var(--sans),var(--sans-zh);font-size:max(15px,1.12vw);line-height:1.55;color:var(--text-primary)">OI = FLOPs / DRAM Byte。它衡量的不是“算力有多大”，而是“搬一次数据能算多久”。</div>
+  </div>
+</section>
+
+<section class="slide light" data-layout="S22" data-animate="image-hero">
+  <div class="canvas-card" style="padding:0">
+    <div data-anim="img" class="frame-img r-21x9 fit-contain" style="max-height:48vh;background:var(--paper);border-bottom:1px solid var(--grey-2)">
+      <img data-image-slot="s22-hero-21x9" src="images/09-roofline-ceilings.png" alt="Roofline ceilings and optimization regions"/>
+    </div>
+    <div data-anim="kpi" class="image-hero-body">
+      <div>
+        <div class="t-meta">ROOFLINE · MOVE THE DOT</div>
+        <h2 class="h-md" style="margin-top:1vh">优化就是把点往右上推。</h2>
+        <p class="body" style="margin-top:1.6vh">如果 OI 不够，继续加矩阵单元可能只是让更多硅片等待数据。</p>
+      </div>
+      <div class="image-hero-stats">
+        <div class="stat-card thin accent-top">
+          <div class="stat-label">RIGHT</div>
           <div class="stat-nb" style="font-size:3vw">REUSE</div>
-          <div class="stat-note">blocking、layout、DMA 会改变有效 OI。</div>
+          <div class="stat-note">tiling、blocking、layout。</div>
+        </div>
+        <div class="stat-card thin">
+          <div class="stat-label">UP</div>
+          <div class="stat-nb" style="font-size:3vw">FEED</div>
+          <div class="stat-note">带宽、prefetch、DMA。</div>
+        </div>
+        <div class="stat-card thin">
+          <div class="stat-label">ROOF</div>
+          <div class="stat-nb" style="font-size:3vw">PEAK</div>
+          <div class="stat-note">Tensor Core / MXU。</div>
         </div>
       </div>
     </div>
@@ -145,14 +259,12 @@
   <div class="canvas-card">
     <div class="chrome-min">
       <div class="l">DNN SURVEY · MEMORY FIRST</div>
-      <div class="r">05 / 20</div>
+      <div class="r">10 / 34</div>
     </div>
-
     <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
       <div class="t-meta">EVIDENCE</div>
       <h2 class="h-xl-zh">数据搬运是 DNN 加速器的一等公民。</h2>
     </div>
-
     <div data-anim="up" style="display:grid;grid-template-columns:1fr 1fr;gap:2vw;align-items:start;margin-top:3vh">
       <figure class="tile">
         <div class="frame-img r-16x10 fit-contain" style="background:var(--paper)">
@@ -167,28 +279,11 @@
         <figcaption class="img-cap">DATA REUSE / ROW STATIONARY</figcaption>
       </figure>
     </div>
-
     <div data-anim="up" class="kpi-row-4" style="margin-top:3vh">
-      <div class="kpi-cell">
-        <div class="lbl">DRAM</div>
-        <div class="nb">贵</div>
-        <div class="note">off-chip 数据搬运通常比 MAC 更值得优化。</div>
-      </div>
-      <div class="kpi-cell">
-        <div class="lbl">DATAFLOW</div>
-        <div class="nb">复用</div>
-        <div class="note">row / weight / output stationary 都是在选择谁留在近端。</div>
-      </div>
-      <div class="kpi-cell">
-        <div class="lbl">PRECISION</div>
-        <div class="nb">压缩</div>
-        <div class="note">低精度让相同带宽携带更多有效计算。</div>
-      </div>
-      <div class="kpi-cell">
-        <div class="lbl">SPARSITY</div>
-        <div class="nb">跳过</div>
-        <div class="note">剪枝/MoE 本质上减少有效搬运和无效计算。</div>
-      </div>
+      <div class="kpi-cell"><div class="lbl">DRAM</div><div class="nb">贵</div><div class="note">off-chip 数据搬运通常比 MAC 更值得优化。</div></div>
+      <div class="kpi-cell"><div class="lbl">DATAFLOW</div><div class="nb">复用</div><div class="note">row / weight / output stationary 都是在选择谁留在近端。</div></div>
+      <div class="kpi-cell"><div class="lbl">PRECISION</div><div class="nb">压缩</div><div class="note">低精度让相同带宽携带更多有效计算。</div></div>
+      <div class="kpi-cell"><div class="lbl">SPARSITY</div><div class="nb">跳过</div><div class="note">剪枝/MoE 本质上减少有效搬运和无效计算。</div></div>
     </div>
   </div>
 </section>
@@ -197,14 +292,12 @@
   <div class="canvas-card">
     <div class="chrome-min">
       <div class="l">TEMPORAL / SPATIAL</div>
-      <div class="r">06 / 20</div>
+      <div class="r">11 / 34</div>
     </div>
-
     <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
       <div class="t-meta">ARCHITECTURAL MODEL</div>
       <h2 class="h-xl-zh">两种喂 ALU 的方式。</h2>
     </div>
-
     <div data-anim="up" class="duo-compare">
       <div class="col">
         <div class="col-tag"><span class="num">01</span> TEMPORAL</div>
@@ -231,6 +324,94 @@
   </div>
 </section>
 
+<section class="slide light" data-layout="S08" data-animate="duo-mirror">
+  <div class="canvas-card">
+    <div class="chrome-min">
+      <div class="l">CACHE · HARDWARE LOCALITY</div>
+      <div class="r">12 / 34</div>
+    </div>
+    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
+      <div class="t-meta">HARDWARE DISCOVERS LOCALITY</div>
+      <h2 class="h-xl-zh">Cache 是硬件猜局部性。</h2>
+    </div>
+    <div data-anim="up" style="display:grid;grid-template-columns:1.1fr .9fr;gap:2.4vw;align-items:stretch;margin-top:4vh">
+      <div class="card-accent" style="padding:3vh 2vw">
+        <div class="t-meta" style="color:var(--accent-on)">VALUE</div>
+        <div class="h-md" style="margin-top:1vh">透明且通用</div>
+        <p class="body" style="margin-top:1.4vh;opacity:.88">程序员不用明确说数据放哪里，硬件自动把可能复用的 cache line 留在近端。</p>
+      </div>
+      <div style="display:grid;grid-template-rows:repeat(4,1fr);gap:1vh">
+        <div class="card-fill" style="padding:1.7vh 1.2vw"><div class="t-meta">TAG / ASSOCIATIVITY</div><div class="body-sm" style="margin-top:.8vh">有没有、放哪里、冲突怎么办。</div></div>
+        <div class="card-fill" style="padding:1.7vh 1.2vw"><div class="t-meta">REPLACEMENT</div><div class="body-sm" style="margin-top:.8vh">硬件猜谁未来更不重要。</div></div>
+        <div class="card-fill" style="padding:1.7vh 1.2vw"><div class="t-meta">PREFETCH</div><div class="body-sm" style="margin-top:.8vh">继续猜未来地址。</div></div>
+        <div class="card-ink" style="padding:1.7vh 1.2vw"><div class="t-meta">COHERENCE</div><div class="body-sm" style="margin-top:.8vh;opacity:.86">多核共享内存抽象的代价。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide light" data-layout="S08" data-animate="duo-mirror">
+  <div class="canvas-card">
+    <div class="chrome-min">
+      <div class="l">SCRATCHPAD · SOFTWARE LOCALITY</div>
+      <div class="r">13 / 34</div>
+    </div>
+    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
+      <div class="t-meta">SOFTWARE DECLARES LOCALITY</div>
+      <h2 class="h-xl-zh">Scratchpad 是软件声明局部性。</h2>
+    </div>
+    <div data-anim="up" class="duo-compare" style="margin-top:4vh">
+      <div class="col">
+        <div class="col-tag"><span class="num">CACHE</span> DISCOVER</div>
+        <div class="col-ttl">硬件观察<br/>过去</div>
+        <ul class="col-list">
+          <li>按 cache line 搬运</li>
+          <li>替换策略决定谁留下</li>
+          <li>程序员享受透明抽象</li>
+          <li>硬件承担猜测和一致性成本</li>
+        </ul>
+      </div>
+      <div class="vrule"></div>
+      <div class="col accent">
+        <div class="col-tag"><span class="num">SPM</span> DECLARE</div>
+        <div class="col-ttl">软件安排<br/>未来</div>
+        <ul class="col-list">
+          <li>明确指定 HBM -> local memory</li>
+          <li>tile 算完前不会被透明替换</li>
+          <li>DMA、sync、compute 可形成流水</li>
+          <li>换来确定性和更强复用控制</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide light" data-layout="S19" data-animate="four-cards">
+  <div class="canvas-card">
+    <div class="chrome-min">
+      <div class="l">CACHE · NEW ROLE</div>
+      <div class="r">14 / 34</div>
+    </div>
+    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh;border-top:3px solid var(--accent);padding-top:2vh">
+      <div class="t-meta">CACHE DID NOT DISAPPEAR</div>
+      <h2 class="h-xl-zh">不是不要 cache，而是主战场变了。</h2>
+    </div>
+    <div data-anim="up" style="display:grid;grid-template-columns:1fr 1fr;gap:2vw;align-items:stretch;margin-top:4vh">
+      <div class="card-accent" style="padding:3vh 2vw">
+        <div class="t-meta" style="color:var(--accent-on)">EXPLICIT PATH</div>
+        <div class="h-md" style="margin-top:1vh">规则 tensor 主路径</div>
+        <p class="body-sm" style="margin-top:1.4vh;opacity:.88">GEMM tile、attention block、conv tile、weight / activation / partial sum，适合 HBM -> SMEM/VMEM/scratchpad -> tensor core。</p>
+      </div>
+      <div class="card-fill" style="padding:3vh 2vw">
+        <div class="t-meta">CACHE PATH</div>
+        <div class="h-md" style="margin-top:1vh">不规则和系统路径</div>
+        <p class="body-sm" style="margin-top:1.4vh">metadata、gather/scatter、CPU 控制流、KV cache 动态管理、跨 kernel 复用、runtime 和系统软件仍然需要 cache。</p>
+      </div>
+    </div>
+    <div data-anim="up" style="border-top:1px solid var(--grey-2);padding-top:1.8vh;margin-top:4vh;font-family:var(--sans),var(--sans-zh);font-size:max(15px,1.12vw);line-height:1.55;color:var(--text-primary);font-weight:400">局部性没有消失，只是从 cache-line 粒度提升到 tensor / kernel / stream 粒度。</div>
+  </div>
+</section>
+
 <section class="slide light" data-layout="S22" data-animate="image-hero">
   <div class="canvas-card" style="padding:0">
     <div data-anim="img" class="frame-img r-21x9 fit-contain" style="max-height:48vh;background:var(--paper);border-bottom:1px solid var(--grey-2)">
@@ -243,21 +424,9 @@
         <p class="body" style="margin-top:1.6vh">DianNao 很早就指出：规则 DNN 访问里，通用 cache 的 tag、associativity、speculative read 和 conflict 可能变成额外成本。</p>
       </div>
       <div class="image-hero-stats">
-        <div class="stat-card thin">
-          <div class="stat-label">BUFFER</div>
-          <div class="stat-nb" style="font-size:3vw">NBin</div>
-          <div class="stat-note">输入神经元近端暂存。</div>
-        </div>
-        <div class="stat-card thin accent-top">
-          <div class="stat-label">WEIGHT</div>
-          <div class="stat-nb" style="font-size:3vw">SB</div>
-          <div class="stat-note">权重 buffer 支撑复用。</div>
-        </div>
-        <div class="stat-card thin">
-          <div class="stat-label">MOVE</div>
-          <div class="stat-nb" style="font-size:3vw">DMA</div>
-          <div class="stat-note">非投机式预取，软件安排数据。</div>
-        </div>
+        <div class="stat-card thin"><div class="stat-label">BUFFER</div><div class="stat-nb" style="font-size:3vw">NBin</div><div class="stat-note">输入神经元近端暂存。</div></div>
+        <div class="stat-card thin accent-top"><div class="stat-label">WEIGHT</div><div class="stat-nb" style="font-size:3vw">SB</div><div class="stat-note">权重 buffer 支撑复用。</div></div>
+        <div class="stat-card thin"><div class="stat-label">MOVE</div><div class="stat-nb" style="font-size:3vw">DMA</div><div class="stat-note">非投机式预取，软件安排数据。</div></div>
       </div>
     </div>
   </div>
@@ -267,44 +436,59 @@
   <div class="canvas-card">
     <div class="chrome-min">
       <div class="l">SYSTOLIC ARRAY · DATA REUSE</div>
-      <div class="r">08 / 20</div>
+      <div class="r">16 / 34</div>
     </div>
-
     <div data-anim="line" style="display:grid;grid-template-columns:1.1fr .9fr;gap:3vw;align-items:start">
       <div style="display:flex;flex-direction:column;gap:1.4vh">
-        <div class="t-meta">DATA MOVES, COMPUTE STAYS</div>
+        <div class="t-meta">COMPUTE STAYS, DATA MOVES</div>
         <h2 class="h-xl-zh">数据在 PE 间流动，经过哪里就在哪里被消费。</h2>
       </div>
       <p class="lead" style="margin:0">脉动阵列的重点不是“很多 MAC”，而是 A/B 元素在二维阵列中传播并被重复消费。</p>
     </div>
-
     <div data-anim="up" style="flex:1;display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:2vw;align-items:center;margin-top:3vh">
-      <div class="card-fill" style="padding:3vh 2vw">
-        <div class="t-meta">A STREAM</div>
-        <div class="h-md" style="margin-top:1.4vh">沿行传播</div>
-        <p class="body-sm" style="margin-top:1.4vh">一个 A 元素被同一行多个 PE 复用。</p>
-      </div>
-
+      <div class="card-fill" style="padding:3vh 2vw"><div class="t-meta">A STREAM</div><div class="h-md" style="margin-top:1.4vh">沿行传播</div><p class="body-sm" style="margin-top:1.4vh">一个 A 元素被同一行多个 PE 复用。</p></div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:8px;min-height:36vh">
-        <div class="card-accent" style="display:flex;align-items:center;justify-content:center;font-family:var(--mono)">PE</div>
-        <div class="card-fill" style="display:flex;align-items:center;justify-content:center;font-family:var(--mono)">PE</div>
-        <div class="card-fill" style="display:flex;align-items:center;justify-content:center;font-family:var(--mono)">PE</div>
-        <div class="card-fill" style="display:flex;align-items:center;justify-content:center;font-family:var(--mono)">PE</div>
-        <div class="card-accent" style="display:flex;align-items:center;justify-content:center;font-family:var(--mono)">PE</div>
-        <div class="card-fill" style="display:flex;align-items:center;justify-content:center;font-family:var(--mono)">PE</div>
-        <div class="card-fill" style="display:flex;align-items:center;justify-content:center;font-family:var(--mono)">PE</div>
-        <div class="card-fill" style="display:flex;align-items:center;justify-content:center;font-family:var(--mono)">PE</div>
-        <div class="card-accent" style="display:flex;align-items:center;justify-content:center;font-family:var(--mono)">PE</div>
+        <div class="card-accent" style="display:flex;align-items:center;justify-content:center;font-family:var(--mono)">PE</div><div class="card-fill" style="display:flex;align-items:center;justify-content:center;font-family:var(--mono)">PE</div><div class="card-fill" style="display:flex;align-items:center;justify-content:center;font-family:var(--mono)">PE</div>
+        <div class="card-fill" style="display:flex;align-items:center;justify-content:center;font-family:var(--mono)">PE</div><div class="card-accent" style="display:flex;align-items:center;justify-content:center;font-family:var(--mono)">PE</div><div class="card-fill" style="display:flex;align-items:center;justify-content:center;font-family:var(--mono)">PE</div>
+        <div class="card-fill" style="display:flex;align-items:center;justify-content:center;font-family:var(--mono)">PE</div><div class="card-fill" style="display:flex;align-items:center;justify-content:center;font-family:var(--mono)">PE</div><div class="card-accent" style="display:flex;align-items:center;justify-content:center;font-family:var(--mono)">PE</div>
       </div>
+      <div class="card-fill" style="padding:3vh 2vw"><div class="t-meta">B STREAM</div><div class="h-md" style="margin-top:1.4vh">沿列传播</div><p class="body-sm" style="margin-top:1.4vh">一个 B 元素被同一列多个 PE 复用。</p></div>
+    </div>
+    <div data-anim="up" class="t-meta" style="border-top:1px solid var(--grey-2);padding-top:1.4vh">C[i][j] = sum_k A[i][k] * B[k][j] · 数据不是广播到所有 PE，而是逐拍经过阵列。</div>
+  </div>
+</section>
 
-      <div class="card-fill" style="padding:3vh 2vw">
-        <div class="t-meta">B STREAM</div>
-        <div class="h-md" style="margin-top:1.4vh">沿列传播</div>
-        <p class="body-sm" style="margin-top:1.4vh">一个 B 元素被同一列多个 PE 复用。</p>
+<section class="slide light" data-layout="S08" data-animate="duo-mirror">
+  <div class="canvas-card">
+    <div class="chrome-min">
+      <div class="l">GPU · LATENCY HIDING</div>
+      <div class="r">17 / 34</div>
+    </div>
+    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
+      <div class="t-meta">THROUGHPUT HIDES LATENCY</div>
+      <h2 class="h-xl-zh">GPU 用海量线程隐藏延迟。</h2>
+    </div>
+    <div data-anim="up" class="duo-compare" style="margin-top:4vh">
+      <div class="col">
+        <div class="col-tag"><span class="num">CPU</span> SMART THREAD</div>
+        <div class="col-ttl">少量复杂 core</div>
+        <ul class="col-list">
+          <li>强单线程、低延迟</li>
+          <li>OoO / BPU / cache 复杂</li>
+          <li>适合不可预测控制流</li>
+        </ul>
+      </div>
+      <div class="vrule"></div>
+      <div class="col accent">
+        <div class="col-tag"><span class="num">GPU</span> MANY THREADS</div>
+        <div class="col-ttl">大量 warps<br/>吞吐调度</div>
+        <ul class="col-list">
+          <li>单线程较轻，整体并行度高</li>
+          <li>occupancy 把等待藏起来</li>
+          <li>Tensor Core 把矩阵主干专门化</li>
+        </ul>
       </div>
     </div>
-
-    <div data-anim="up" class="t-meta" style="border-top:1px solid var(--grey-2);padding-top:1.4vh">C[i][j] = sum_k A[i][k] * B[k][j] · 数据不是广播到所有 PE，而是逐拍经过阵列。</div>
   </div>
 </section>
 
@@ -312,39 +496,21 @@
   <div class="canvas-card">
     <div class="chrome-min">
       <div class="l">NVIDIA GPU · EXPLICIT MOVEMENT</div>
-      <div class="r">09 / 20</div>
+      <div class="r">18 / 34</div>
     </div>
-
     <div data-anim="line" style="display:grid;grid-template-columns:auto 1fr;gap:3vw;align-items:end">
       <div class="t-meta">TIMELINE</div>
       <h2 class="h-xl-zh">GPU 从线程吞吐走向显式数据移动。</h2>
     </div>
-
     <div data-anim="up" class="timeline-h">
       <div class="tl-row">
-        <div class="th-node up">
-          <div class="dot"></div>
-          <div class="label"><div class="yr">SIMT</div><div class="name">线程隐藏延迟</div><div class="desc">warps / blocks / occupancy</div></div>
-        </div>
-        <div class="th-node down">
-          <div class="dot"></div>
-          <div class="label"><div class="yr">A100</div><div class="name">cp.async</div><div class="desc">global -> shared memory</div></div>
-        </div>
-        <div class="th-node up accent">
-          <div class="dot"></div>
-          <div class="label"><div class="yr">H100</div><div class="name">TMA + WGMMA</div><div class="desc">数据移动成为程序本身</div></div>
-        </div>
-        <div class="th-node down">
-          <div class="dot"></div>
-          <div class="label"><div class="yr">H100</div><div class="name">mbarrier / DSMEM</div><div class="desc">producer-consumer pipeline</div></div>
-        </div>
-        <div class="th-node up">
-          <div class="dot"></div>
-          <div class="label"><div class="yr">B200</div><div class="name">TMEM / tcgen05</div><div class="desc">tensor compute 与 warp 调度解耦</div></div>
-        </div>
+        <div class="th-node up"><div class="dot"></div><div class="label"><div class="yr">SIMT</div><div class="name">线程隐藏延迟</div><div class="desc">warps / blocks / occupancy</div></div></div>
+        <div class="th-node down"><div class="dot"></div><div class="label"><div class="yr">A100</div><div class="name">cp.async</div><div class="desc">global -> shared memory</div></div></div>
+        <div class="th-node up accent"><div class="dot"></div><div class="label"><div class="yr">H100</div><div class="name">TMA + WGMMA</div><div class="desc">数据移动成为程序本身</div></div></div>
+        <div class="th-node down"><div class="dot"></div><div class="label"><div class="yr">H100</div><div class="name">mbarrier / DSMEM</div><div class="desc">producer-consumer pipeline</div></div></div>
+        <div class="th-node up"><div class="dot"></div><div class="label"><div class="yr">B200</div><div class="name">TMEM / tcgen05</div><div class="desc">tensor compute 与 warp 调度解耦</div></div></div>
       </div>
     </div>
-
     <div data-anim="up" class="nav-safe-bottom" style="border-top:1px solid var(--grey-2);padding-top:1.8vh;font-family:var(--sans),var(--sans-zh);font-size:max(15px,1.12vw);line-height:1.55;color:var(--text-primary);font-weight:400">趋势：GPU 仍保留线程生态，但越来越把 tile movement、sync、tensor execution 显式暴露给软件栈。</div>
   </div>
 </section>
@@ -356,26 +522,14 @@
     </div>
     <div data-anim="kpi" class="image-hero-body">
       <div>
-        <div class="t-meta">GOOGLE TPU · ARCHITECTURE BET</div>
+        <div class="t-meta">GOOGLE TPU · COMPILER FIRST</div>
         <h2 class="h-md" style="margin-top:1vh">TPU 从第一天起押注编译器和 dataflow。</h2>
         <p class="body" style="margin-top:1.6vh">TPU 拿掉大量动态机制，用 MXU、VMEM 和编译器调度 DMA 换取密度、确定性和规模化互联。</p>
       </div>
       <div class="image-hero-stats">
-        <div class="stat-card thin accent-top">
-          <div class="stat-label">MXU</div>
-          <div class="stat-nb" style="font-size:3vw">MATRIX</div>
-          <div class="stat-note">把面积集中给矩阵主干。</div>
-        </div>
-        <div class="stat-card thin">
-          <div class="stat-label">VMEM</div>
-          <div class="stat-nb" style="font-size:3vw">LOCAL</div>
-          <div class="stat-note">软件管理近端内存。</div>
-        </div>
-        <div class="stat-card thin">
-          <div class="stat-label">COMPILER</div>
-          <div class="stat-nb" style="font-size:3vw">DMA</div>
-          <div class="stat-note">运行前安排数据路径。</div>
-        </div>
+        <div class="stat-card thin accent-top"><div class="stat-label">MXU</div><div class="stat-nb" style="font-size:3vw">MATRIX</div><div class="stat-note">把面积集中给矩阵主干。</div></div>
+        <div class="stat-card thin"><div class="stat-label">VMEM</div><div class="stat-nb" style="font-size:3vw">LOCAL</div><div class="stat-note">软件管理近端内存。</div></div>
+        <div class="stat-card thin"><div class="stat-label">COMPILER</div><div class="stat-nb" style="font-size:3vw">DMA</div><div class="stat-note">运行前安排数据路径。</div></div>
       </div>
     </div>
   </div>
@@ -385,35 +539,25 @@
   <div class="canvas-card">
     <div class="chrome-min">
       <div class="l">CONVERGENCE · GPU / TPU</div>
-      <div class="r">11 / 20</div>
+      <div class="r">20 / 34</div>
     </div>
-
     <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
       <div class="t-meta">DIFFERENT ROADS, SAME WALL</div>
       <h2 class="h-xl-zh">两条路线都在承认：data movement 是架构一等公民。</h2>
     </div>
-
     <div data-anim="up" class="duo-compare" style="margin-top:5vh">
       <div class="col">
         <div class="col-tag"><span class="num">GPU</span> THREADS FIRST</div>
         <div class="col-ttl">灵活性<br/>逐步 dataflow 化</div>
         <div class="col-desc">GPU 从 SIMT 和线程生态出发，逐步加入更近的 memory、更显式的 DMA、更强的 tensor pipeline。</div>
-        <ul class="col-list">
-          <li>SMEM / DSMEM / TMEM</li>
-          <li>cp.async / TMA / mbarrier</li>
-          <li>保留 CUDA/Triton escape hatch</li>
-        </ul>
+        <ul class="col-list"><li>SMEM / DSMEM / TMEM</li><li>cp.async / TMA / mbarrier</li><li>CUDA/Triton escape hatch</li></ul>
       </div>
       <div class="vrule"></div>
       <div class="col accent">
         <div class="col-tag"><span class="num">TPU</span> DATAFLOW FIRST</div>
         <div class="col-ttl">确定性<br/>继续规模化</div>
         <div class="col-desc">TPU 从矩阵数据流出发，把 VMEM、MXU、DMA、互联和编译器调度作为同一个系统设计。</div>
-        <ul class="col-list">
-          <li>HBM -> VMEM -> MXU/VPU</li>
-          <li>Mosaic / VLIW / XProf</li>
-          <li>稀疏、动态和低 batch 是补课区</li>
-        </ul>
+        <ul class="col-list"><li>HBM -> VMEM -> MXU/VPU</li><li>Mosaic / VLIW / XProf</li><li>动态和低 batch 是补课区</li></ul>
       </div>
     </div>
   </div>
@@ -423,33 +567,16 @@
   <div class="canvas-card">
     <div class="chrome-min">
       <div class="l">PROGRAMMING MODEL · TILE</div>
-      <div class="r">12 / 20</div>
+      <div class="r">21 / 34</div>
     </div>
-
     <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
       <div class="t-meta">THINK IN TILES</div>
       <h2 class="h-xl-zh">Tile 是现代 AI 编程的核心抽象。</h2>
     </div>
-
     <div data-anim="up" class="stack-row">
-      <div class="stack-block b-grey">
-        <div class="layer-nb">TOO HIGH</div>
-        <div class="layer-ttl">Operator</div>
-        <div class="layer-desc">matmul / attention / conv 表达简单，但很难控制局部复用和特殊融合。</div>
-        <div class="layer-tag">WHOLE OP</div>
-      </div>
-      <div class="stack-block b-accent">
-        <div class="layer-nb">SWEET SPOT</div>
-        <div class="layer-ttl">Tile / Block</div>
-        <div class="layer-desc">固定形状的数据块，能表达片上缓存、数据复用、pipeline 和 Tensor Core/MXU 使用。</div>
-        <div class="layer-tag">128 × 128 / BLOCK_M,N,K</div>
-      </div>
-      <div class="stack-block b-ink">
-        <div class="layer-nb">TOO LOW</div>
-        <div class="layer-ttl">Instruction</div>
-        <div class="layer-desc">mma / wgmma / load / barrier 控制力最强，但程序员负担和可移植性成本最高。</div>
-        <div class="layer-tag">LANE / WARP / OP</div>
-      </div>
+      <div class="stack-block b-grey"><div class="layer-nb">TOO HIGH</div><div class="layer-ttl">Operator</div><div class="layer-desc">matmul / attention / conv 表达简单，但很难控制局部复用和特殊融合。</div><div class="layer-tag">WHOLE OP</div></div>
+      <div class="stack-block b-accent"><div class="layer-nb">SWEET SPOT</div><div class="layer-ttl">Tile / Block</div><div class="layer-desc">固定形状的数据块，能表达片上缓存、数据复用、pipeline 和 Tensor Core/MXU 使用。</div><div class="layer-tag">128 × 128 / BLOCK_M,N,K</div></div>
+      <div class="stack-block b-ink"><div class="layer-nb">TOO LOW</div><div class="layer-ttl">Instruction</div><div class="layer-desc">mma / wgmma / load / barrier 控制力最强，但程序员负担和可移植性成本最高。</div><div class="layer-tag">LANE / WARP / OP</div></div>
     </div>
   </div>
 </section>
@@ -458,61 +585,81 @@
   <div class="canvas-card">
     <div class="chrome-min">
       <div class="l">SOFTWARE STACK · COMPILER</div>
-      <div class="r">13 / 20</div>
+      <div class="r">22 / 34</div>
     </div>
-
     <div data-anim="line" style="display:grid;grid-template-columns:1.05fr .95fr;gap:3vw;align-items:start">
       <div style="display:flex;flex-direction:column;gap:1.4vh">
         <div class="t-meta">COMPILER AS ARCHITECTURE</div>
-        <h2 class="h-xl-zh">软件栈成为机器的一部分。</h2>
+        <h2 class="h-xl-zh">软件栈为什么成为架构的一部分？</h2>
       </div>
-      <p class="lead" style="margin:0">程序员描述 tile 和数学，编译器决定 layout、DMA、同步和指令打包。</p>
+      <p class="lead" style="margin:0">在 AI 加速器里，编译器/runtime 不只是翻译代码，而是在决定 tile shape、layout、fusion、DMA、buffer residency、barrier 和 MMA/MXU schedule。</p>
     </div>
-
     <div data-anim="up" style="flex:1;display:grid;grid-template-columns:repeat(5,1fr);gap:1vw;align-items:stretch;margin-top:4vh">
-      <div class="card-fill" style="padding:2.4vh 1.2vw">
-        <div class="t-meta">01</div>
-        <div class="h-md" style="margin-top:1.2vh">Framework</div>
-        <div class="body-sm" style="margin-top:1.2vh">PyTorch / JAX 捕获计算图。</div>
+      <div class="card-fill" style="padding:2.4vh 1.2vw"><div class="t-meta">01</div><div class="h-md" style="margin-top:1.2vh">Capture</div><div class="body-sm" style="margin-top:1.2vh">框架捕获计算图和热点路径。</div></div>
+      <div class="card-fill" style="padding:2.4vh 1.2vw"><div class="t-meta">02</div><div class="h-md" style="margin-top:1.2vh">Fuse</div><div class="body-sm" style="margin-top:1.2vh">决定哪些 op 合并，减少 HBM 往返。</div></div>
+      <div class="card-accent" style="padding:2.4vh 1.2vw"><div class="t-meta" style="color:var(--accent-on)">03</div><div class="h-md" style="margin-top:1.2vh">Tile</div><div class="body-sm" style="margin-top:1.2vh;opacity:.86">选择 block shape 和数据驻留位置。</div></div>
+      <div class="card-fill" style="padding:2.4vh 1.2vw"><div class="t-meta">04</div><div class="h-md" style="margin-top:1.2vh">Move</div><div class="body-sm" style="margin-top:1.2vh">安排 DMA、barrier、producer-consumer。</div></div>
+      <div class="card-fill" style="padding:2.4vh 1.2vw"><div class="t-meta">05</div><div class="h-md" style="margin-top:1.2vh">Issue</div><div class="body-sm" style="margin-top:1.2vh">生成 MMA / MXU / SASS / VLIW。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide light" data-layout="S22" data-animate="image-hero">
+  <div class="canvas-card" style="padding:0">
+    <div data-anim="img" class="frame-img r-21x9 fit-contain" style="max-height:59vh;background:var(--paper);border-bottom:1px solid var(--grey-2)">
+      <img data-image-slot="s22-hero-21x9" src="images/23-nvidia-stack.png" alt="NVIDIA software stack"/>
+    </div>
+    <div data-anim="kpi" class="image-hero-body" style="grid-template-columns:.95fr 1.05fr">
+      <div>
+        <div class="t-meta">NVIDIA STACK · EXAMPLE</div>
+        <h2 class="h-md" style="margin-top:1vh">不同层暴露不同粒度的控制权。</h2>
       </div>
-      <div class="card-fill" style="padding:2.4vh 1.2vw">
-        <div class="t-meta">02</div>
-        <div class="h-md" style="margin-top:1.2vh">IR</div>
-        <div class="body-sm" style="margin-top:1.2vh">HLO / StableHLO 表达融合边界。</div>
-      </div>
-      <div class="card-accent" style="padding:2.4vh 1.2vw">
-        <div class="t-meta" style="color:var(--accent-on)">03</div>
-        <div class="h-md" style="margin-top:1.2vh">Tile Kernel</div>
-        <div class="body-sm" style="margin-top:1.2vh;opacity:.86">Triton / Pallas 描述 block 和数学。</div>
-      </div>
-      <div class="card-fill" style="padding:2.4vh 1.2vw">
-        <div class="t-meta">04</div>
-        <div class="h-md" style="margin-top:1.2vh">Backend</div>
-        <div class="body-sm" style="margin-top:1.2vh">Mosaic / GPU backend 决定 layout 和 DMA。</div>
-      </div>
-      <div class="card-fill" style="padding:2.4vh 1.2vw">
-        <div class="t-meta">05</div>
-        <div class="h-md" style="margin-top:1.2vh">Machine</div>
-        <div class="body-sm" style="margin-top:1.2vh">MMA + memory + barrier + VLIW。</div>
+      <div class="image-hero-stats">
+        <div class="stat-card thin accent-top"><div class="stat-label">TOP</div><div class="stat-nb" style="font-size:2.4vw">MODEL</div><div class="stat-note">PyTorch / JAX 表达模型和图。</div></div>
+        <div class="stat-card thin"><div class="stat-label">MID</div><div class="stat-nb" style="font-size:2.4vw">TILE</div><div class="stat-note">Triton / CUTLASS 控制 kernel。</div></div>
+        <div class="stat-card thin"><div class="stat-label">LOW</div><div class="stat-nb" style="font-size:2.4vw">ISA</div><div class="stat-note">CUDA / PTX / SASS 接近机器。</div></div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div data-anim="up" class="kpi-row-4" style="margin-top:2.8vh">
-      <div class="kpi-cell">
-        <div class="lbl">TRITON</div>
-        <div class="note">同一 tile kernel，在不同 GPU 上生成不同底层机制。</div>
+<section class="slide light" data-layout="S17" data-animate="system-diagram">
+  <div class="canvas-card">
+    <div class="chrome-min">
+      <div class="l">TILE PIPELINE · SOFTWARE ORCHESTRATION</div>
+      <div class="r">24 / 34</div>
+    </div>
+    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
+      <div class="t-meta">SCHEDULING A TILE PIPELINE</div>
+      <h2 class="h-xl-zh">一次 tile kernel 是怎么被编排的？</h2>
+    </div>
+    <div data-anim="up" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1vw;align-items:stretch;margin-top:4vh">
+      <div class="card-fill" style="padding:2.4vh 1.2vw"><div class="t-meta">01 · GRAPH</div><div class="body-sm" style="margin-top:1vh">PyTorch op / torch.compile 捕获热点。</div></div>
+      <div class="card-fill" style="padding:2.4vh 1.2vw"><div class="t-meta">02 · TILE</div><div class="body-sm" style="margin-top:1vh">Triton kernel 声明 BLOCK_M / N / K。</div></div>
+      <div class="card-accent" style="padding:2.4vh 1.2vw"><div class="t-meta" style="color:var(--accent-on)">03 · MOVE</div><div class="body-sm" style="margin-top:1vh;opacity:.86">compiler 安排 HBM -> SMEM via cp.async / TMA。</div></div>
+      <div class="card-fill" style="padding:2.4vh 1.2vw"><div class="t-meta">04 · COMPUTE</div><div class="body-sm" style="margin-top:1vh">mbarrier 同步，WGMMA/Tensor Core 消费。</div></div>
+    </div>
+    <div data-anim="up" style="margin-top:4vh;border-top:1px solid var(--grey-2);padding-top:2vh;font-family:var(--mono);font-size:max(13px,1vw);line-height:1.7;color:var(--text-primary)">
+      model op &rarr; graph capture / fusion &rarr; tile kernel &rarr; layout + stages &rarr; DMA &rarr; barrier &rarr; MMA &rarr; writeback
+    </div>
+    <div data-anim="up" class="t-meta" style="margin-top:2vh">高性能 kernel 的核心不是写一个 for 循环，而是让 load、barrier、MMA、store 形成稳定 pipeline。</div>
+  </div>
+</section>
+
+<section class="slide light" data-layout="S22" data-animate="image-hero">
+  <div class="canvas-card" style="padding:0">
+    <div data-anim="img" class="frame-img r-21x9 fit-contain" style="max-height:56vh;background:var(--paper);border-bottom:1px solid var(--grey-2)">
+      <img data-image-slot="s22-hero-21x9" src="images/25-google-stack.png" alt="Google TPU software stack"/>
+    </div>
+    <div data-anim="kpi" class="image-hero-body" style="grid-template-columns:1fr 1fr">
+      <div>
+        <div class="t-meta">GPU / TPU · SOFTWARE BOUNDARY</div>
+        <h2 class="h-md" style="margin-top:1vh">复杂度放在哪一层，路线就不同。</h2>
       </div>
-      <div class="kpi-cell">
-        <div class="lbl">PALLAS</div>
-        <div class="note">BlockSpec 描述 HBM 到 VMEM 的 tile。</div>
-      </div>
-      <div class="kpi-cell">
-        <div class="lbl">MOSAIC</div>
-        <div class="note">决定 VMEM/register、tile shape、DMA scheduling。</div>
-      </div>
-      <div class="kpi-cell">
-        <div class="lbl">LLO</div>
-        <div class="note">把 scalar、vector、DMA 打包成 VLIW 束。</div>
+      <div class="image-hero-stats">
+        <div class="stat-card thin"><div class="stat-label">GPU</div><div class="stat-nb" style="font-size:2.4vw">ESCAPE</div><div class="stat-note">Triton / CUDA / CUTLASS 下探空间大。</div></div>
+        <div class="stat-card thin accent-top"><div class="stat-label">TPU</div><div class="stat-nb" style="font-size:2.4vw">COMPILER</div><div class="stat-note">Mosaic 接管 layout、DMA、VLIW。</div></div>
+        <div class="stat-card thin"><div class="stat-label">TRADEOFF</div><div class="stat-nb" style="font-size:2.4vw">BOUNDARY</div><div class="stat-note">生态/调试 vs 统一优化/确定性。</div></div>
       </div>
     </div>
   </div>
@@ -522,44 +669,28 @@
   <div class="canvas-card">
     <div class="chrome-min">
       <div class="l">TIMELOOP · MAPPING SPACE</div>
-      <div class="r">14 / 20</div>
+      <div class="r">26 / 34</div>
     </div>
-
     <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
       <div class="t-meta">SAME HARDWARE, DIFFERENT MAPPING</div>
       <h2 class="h-xl-zh">mapping 决定硬件是否真的快。</h2>
     </div>
-
     <div data-anim="up" style="display:grid;grid-template-columns:1fr 1.2fr;gap:3vw;align-items:stretch;margin-top:4vh">
       <div style="display:flex;flex-direction:column;gap:1.2vh">
         <div class="card-fill" style="padding:2vh 1.6vw"><div class="t-meta">TILING</div><div class="body" style="margin-top:.8vh">每级存储放多大的 tile。</div></div>
         <div class="card-fill" style="padding:2vh 1.6vw"><div class="t-meta">LOOP ORDER</div><div class="body" style="margin-top:.8vh">loop 顺序决定谁被复用。</div></div>
         <div class="card-fill" style="padding:2vh 1.6vw"><div class="t-meta">SPATIAL PARTITION</div><div class="body" style="margin-top:.8vh">哪些维度展开到 PE 阵列。</div></div>
-        <div class="card-accent" style="padding:2vh 1.6vw"><div class="t-meta" style="color:var(--accent-on)">BYPASS / DATAFLOW</div><div class="body" style="margin-top:.8vh;opacity:.86">哪些 tensor 跳过某级存储，约束 row/weight/output stationary。</div></div>
+        <div class="card-accent" style="padding:2vh 1.6vw"><div class="t-meta" style="color:var(--accent-on)">BYPASS / DATAFLOW</div><div class="body" style="margin-top:.8vh;opacity:.86">哪些 tensor 跳过某级存储。</div></div>
       </div>
-
       <div style="display:grid;grid-template-rows:auto 1fr;gap:2vh">
-        <p class="lead" style="margin:0">Timeloop 的价值在于：它把“硬件描述 + workload + mapping constraints”变成可搜索的 mapspace。</p>
+        <p class="lead" style="margin:0">Timeloop 把“硬件描述 + workload + mapping constraints”变成可搜索的 mapspace。</p>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1vw;align-items:stretch">
-          <div class="card-fill" style="padding:2vh 1.2vw">
-            <div class="t-meta">COUNT</div>
-            <div class="h-md" style="margin-top:1vh">MAC</div>
-            <div class="body-sm" style="margin-top:1vh">算术次数。</div>
-          </div>
-          <div class="card-accent" style="padding:2vh 1.2vw">
-            <div class="t-meta" style="color:var(--accent-on)">COUNT</div>
-            <div class="h-md" style="margin-top:1vh">ACCESS</div>
-            <div class="body-sm" style="margin-top:1vh;opacity:.86">各级 memory access。</div>
-          </div>
-          <div class="card-fill" style="padding:2vh 1.2vw">
-            <div class="t-meta">COUNT</div>
-            <div class="h-md" style="margin-top:1vh">NETWORK</div>
-            <div class="body-sm" style="margin-top:1vh">transfer / multicast / reduction。</div>
-          </div>
+          <div class="card-fill" style="padding:2vh 1.2vw"><div class="t-meta">COUNT</div><div class="h-md" style="margin-top:1vh">MAC</div><div class="body-sm" style="margin-top:1vh">算术次数。</div></div>
+          <div class="card-accent" style="padding:2vh 1.2vw"><div class="t-meta" style="color:var(--accent-on)">COUNT</div><div class="h-md" style="margin-top:1vh">ACCESS</div><div class="body-sm" style="margin-top:1vh;opacity:.86">各级 memory access。</div></div>
+          <div class="card-fill" style="padding:2vh 1.2vw"><div class="t-meta">COUNT</div><div class="h-md" style="margin-top:1vh">NETWORK</div><div class="body-sm" style="margin-top:1vh">transfer / multicast / reduction。</div></div>
         </div>
       </div>
     </div>
-
     <div data-anim="up" style="border-top:1px solid var(--grey-2);padding-top:1.8vh;margin-top:2vh;font-family:var(--sans),var(--sans-zh);font-size:max(15px,1.12vw);line-height:1.55;color:var(--text-primary);font-weight:400">对 AME 的启发：不能只建矩阵单元 ops/cycle，还要建数据如何被搬、复用和等待。</div>
   </div>
 </section>
@@ -568,51 +699,36 @@
   <div class="canvas-card">
     <div class="chrome-min">
       <div class="l">LLM SERVING · MIXED BOTTLENECKS</div>
-      <div class="r">15 / 20</div>
+      <div class="r">27 / 34</div>
     </div>
-
     <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh;border-top:3px solid var(--accent);padding-top:2vh">
       <div class="t-meta">PREFILL LOVES MATRIX, DECODE LOVES SYSTEMS</div>
       <h2 class="h-xl-zh">LLM serving 不是纯 GEMM 世界。</h2>
     </div>
-
     <div data-anim="up" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1vw;align-items:stretch;margin-top:4vh">
-      <div class="card-accent" style="padding:2.4vh 1.5vw;display:flex;flex-direction:column;gap:1.2vh">
-        <div class="t-meta" style="color:var(--accent-on)">PREFILL FFN</div>
-        <div class="h-md">大矩阵乘</div>
-        <div class="body-sm" style="opacity:.86;margin-top:auto">并行高、复用高，适合 AME / Tensor Core。</div>
-      </div>
-      <div class="card-fill" style="padding:2.4vh 1.5vw;display:flex;flex-direction:column;gap:1.2vh">
-        <div class="t-meta">ATTENTION</div>
-        <div class="h-md">GEMM + softmax</div>
-        <div class="body-sm" style="margin-top:auto">tile + reduction，需要矩阵和 vector/reduction 配合。</div>
-      </div>
-      <div class="card-fill" style="padding:2.4vh 1.5vw;display:flex;flex-direction:column;gap:1.2vh">
-        <div class="t-meta">DECODE</div>
-        <div class="h-md">GEMV / 小 batch</div>
-        <div class="body-sm" style="margin-top:auto">低 batch、访存重，很难填满大型阵列。</div>
-      </div>
-      <div class="card-ink" style="padding:2.4vh 1.5vw;display:flex;flex-direction:column;gap:1.2vh">
-        <div class="t-meta">SYSTEM</div>
-        <div class="h-md">KV / sampling</div>
-        <div class="body-sm" style="opacity:.86;margin-top:auto">cache、metadata、routing、调度，CPU 仍然关键。</div>
-      </div>
+      <div class="card-accent" style="padding:2.4vh 1.5vw;display:flex;flex-direction:column;gap:1.2vh"><div class="t-meta" style="color:var(--accent-on)">PREFILL FFN</div><div class="h-md">大矩阵乘</div><div class="body-sm" style="opacity:.86;margin-top:auto">并行高、复用高，适合 AME / Tensor Core。</div></div>
+      <div class="card-fill" style="padding:2.4vh 1.5vw;display:flex;flex-direction:column;gap:1.2vh"><div class="t-meta">ATTENTION</div><div class="h-md">GEMM + softmax</div><div class="body-sm" style="margin-top:auto">tile + reduction，需要矩阵和 vector/reduction 配合。</div></div>
+      <div class="card-fill" style="padding:2.4vh 1.5vw;display:flex;flex-direction:column;gap:1.2vh"><div class="t-meta">DECODE</div><div class="h-md">GEMV / 小 batch</div><div class="body-sm" style="margin-top:auto">低 batch、访存重，很难填满大型阵列。</div></div>
+      <div class="card-ink" style="padding:2.4vh 1.5vw;display:flex;flex-direction:column;gap:1.2vh"><div class="t-meta">SYSTEM</div><div class="h-md">KV / sampling</div><div class="body-sm" style="opacity:.86;margin-top:auto">cache、metadata、routing、调度，CPU 仍然关键。</div></div>
     </div>
+  </div>
+</section>
 
-    <div data-anim="up" style="display:grid;grid-template-columns:1fr 1fr;gap:2vw;align-items:start;margin-top:3vh">
-      <figure class="tile">
-        <div class="frame-img r-21x9 fit-contain" style="background:var(--paper)">
-          <img data-image-slot="s16-brief-16x10" src="images/15-prefill-decode.png" alt="LLM prefill and decode phases"/>
-        </div>
-        <figcaption class="img-cap">PREFILL / DECODE PHASES</figcaption>
-      </figure>
-      <figure class="tile">
-        <div class="frame-img r-21x9 fit-contain" style="background:var(--paper)">
-          <img data-image-slot="s16-brief-16x10" src="images/15-kv-cache.png" alt="KV cache and memory trend"/>
-        </div>
-        <figcaption class="img-cap">KV CACHE MEMORY GROWTH</figcaption>
-      </figure>
+<section class="slide light" data-layout="S16" data-animate="grid-reveal">
+  <div class="canvas-card">
+    <div class="chrome-min">
+      <div class="l">LLM SERVING · PREFILL / DECODE</div>
+      <div class="r">28 / 34</div>
     </div>
+    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
+      <div class="t-meta">SAME MODEL, DIFFERENT BOTTLENECKS</div>
+      <h2 class="h-xl-zh">同一个 LLM，不同阶段瓶颈不同。</h2>
+    </div>
+    <div data-anim="up" style="display:grid;grid-template-columns:1fr 1fr;gap:2vw;align-items:start;margin-top:3vh">
+      <figure class="tile"><div class="frame-img r-21x9 fit-contain" style="background:var(--paper)"><img data-image-slot="s16-brief-16x10" src="images/15-prefill-decode.png" alt="LLM prefill and decode phases"/></div><figcaption class="img-cap">PREFILL / DECODE PHASES</figcaption></figure>
+      <figure class="tile"><div class="frame-img r-21x9 fit-contain" style="background:var(--paper)"><img data-image-slot="s16-brief-16x10" src="images/15-kv-cache.png" alt="KV cache and memory trend"/></div><figcaption class="img-cap">KV CACHE MEMORY GROWTH</figcaption></figure>
+    </div>
+    <div data-anim="up" class="t-meta" style="border-top:1px solid var(--grey-2);padding-top:1.4vh;margin-top:2.6vh">如果只围绕大 GEMM 设计 AME，可能会低估 decode、KV cache 和 vector/reduction 的系统成本。</div>
   </div>
 </section>
 
@@ -620,24 +736,14 @@
   <div class="canvas-card">
     <div class="chrome-min">
       <div class="l">XSAI · CURRENT POSITION</div>
-      <div class="r">16 / 20</div>
+      <div class="r">29 / 34</div>
     </div>
-
     <div data-anim="line" style="display:grid;grid-template-columns:1.05fr .95fr;gap:3vw;align-items:start">
-      <div style="display:flex;flex-direction:column;gap:1.4vh">
-        <div class="t-meta">BACK TO OUR WORK</div>
-        <h2 class="h-xl-zh">XSAI 当前是 CPU 紧耦合 AME 的起点。</h2>
-      </div>
+      <div style="display:flex;flex-direction:column;gap:1.4vh"><div class="t-meta">BACK TO OUR WORK</div><h2 class="h-xl-zh">XSAI 当前是 CPU 紧耦合 AME 的起点。</h2></div>
       <p class="lead" style="margin:0">大 OoO core 搭配 CUTE 类 tensor core，共享 L2Cache；它还不是完整 TPU-like dataflow 机器。</p>
     </div>
-
     <div data-anim="up" style="display:grid;grid-template-columns:1.2fr .8fr;gap:2.4vw;align-items:stretch;margin-top:3vh">
-      <figure class="tile">
-        <div class="frame-img r-16x10 fit-contain" style="background:var(--paper)">
-          <img data-image-slot="s16-brief-16x10" src="images/16-xsai.png" alt="XSAI architecture screenshot"/>
-        </div>
-        <figcaption class="img-cap">XSAI ARCHITECTURE SNAPSHOT</figcaption>
-      </figure>
+      <figure class="tile"><div class="frame-img r-16x10 fit-contain" style="background:var(--paper)"><img data-image-slot="s16-brief-16x10" src="images/16-xsai.png" alt="XSAI architecture screenshot"/></div><figcaption class="img-cap">XSAI ARCHITECTURE SNAPSHOT</figcaption></figure>
       <div style="display:grid;grid-template-rows:repeat(4,1fr);gap:1vh">
         <div class="card-fill" style="padding:1.6vh 1.2vw"><div class="t-meta">OOO CORE</div><div class="body-sm" style="margin-top:.8vh">控制流、通用程序、低延迟调度。</div></div>
         <div class="card-accent" style="padding:1.6vh 1.2vw"><div class="t-meta" style="color:var(--accent-on)">CUTE</div><div class="body-sm" style="margin-top:.8vh;opacity:.86">类 tensor core，负责矩阵主干。</div></div>
@@ -651,37 +757,47 @@
 <section class="slide light" data-layout="S08" data-animate="duo-mirror">
   <div class="canvas-card">
     <div class="chrome-min">
-      <div class="l">AME / IME · DESIGN QUESTION</div>
-      <div class="r">17 / 20</div>
+      <div class="l">AME · OWNERSHIP</div>
+      <div class="r">30 / 34</div>
     </div>
+    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
+      <div class="t-meta">WHO OWNS THE TENSOR?</div>
+      <h2 class="h-xl-zh">AME 的核心问题：谁拥有这块 tensor？</h2>
+    </div>
+    <div data-anim="up" class="duo-compare" style="margin-top:4vh">
+      <div class="col accent">
+        <div class="col-tag"><span class="num">A</span> AME LOCAL PATH</div>
+        <div class="col-ttl">HBM -> SPM -> CUTE</div>
+        <div class="col-desc">适合大 GEMM、prefill、规则 tile，不希望 CPU 反复触碰。</div>
+        <ul class="col-list"><li>更容易做 dataflow</li><li>需要 DMA / fence / ownership</li><li>一致性边界更显式</li></ul>
+      </div>
+      <div class="vrule"></div>
+      <div class="col">
+        <div class="col-tag"><span class="num">B</span> SHARED L2 PATH</div>
+        <div class="col-ttl">HBM -> L2 -> CPU + AME</div>
+        <div class="col-desc">适合动态控制、小 batch、norm、softmax、metadata 和 CPU 协同。</div>
+        <ul class="col-list"><li>生态和控制更自然</li><li>可能反复穿越 L2</li><li>matrix/vector 边界要量化</li></ul>
+      </div>
+    </div>
+    <div data-anim="up" class="t-meta" style="border-top:1px solid var(--grey-2);padding-top:1.4vh;margin-top:2.6vh">切换 ownership 的成本，可能就是 AME 软件栈要回答的问题。</div>
+  </div>
+</section>
 
+<section class="slide light" data-layout="S08" data-animate="duo-mirror">
+  <div class="canvas-card">
+    <div class="chrome-min">
+      <div class="l">AME / IME · DESIGN QUESTION</div>
+      <div class="r">31 / 34</div>
+    </div>
     <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
       <div class="t-meta">WHERE DOES MATRIX STATE LIVE?</div>
       <h2 class="h-xl-zh">AME vs IME 不是名字之争。</h2>
     </div>
-
     <div data-anim="up" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.2vw;align-items:stretch;margin-top:5vh">
-      <div class="card-fill" style="padding:3vh 1.8vw;display:flex;flex-direction:column;gap:1.4vh">
-        <div class="t-meta">RVV</div>
-        <div class="h-md">拿向量拼矩阵</div>
-        <div class="body-sm">通用、生态连续，但指令数多，矩阵复用弱。</div>
-        <div class="t-meta" style="margin-top:auto;border-top:1px solid var(--grey-2);padding-top:1.4vh">STATE: VECTOR REGISTERS</div>
-      </div>
-      <div class="card-fill" style="padding:3vh 1.8vw;display:flex;flex-direction:column;gap:1.4vh">
-        <div class="t-meta">IME</div>
-        <div class="h-md">矩阵语义进 ISA</div>
-        <div class="body-sm">矩阵仍住在 vector RF，性能受 VRF 容量、load bandwidth、端口压力约束。</div>
-        <div class="t-meta" style="margin-top:auto;border-top:1px solid var(--grey-2);padding-top:1.4vh">STATE: VRF + MATRIX FU</div>
-      </div>
-      <div class="card-accent" style="padding:3vh 1.8vw;display:flex;flex-direction:column;gap:1.4vh">
-        <div class="t-meta" style="color:var(--accent-on)">AME</div>
-        <div class="h-md">矩阵自己有房子、有路、有厨房</div>
-        <div class="body-sm" style="opacity:.86">更容易围绕矩阵重做数据路径，但要处理 matrix/vector 边界、一致性和软件栈。</div>
-        <div class="t-meta" style="color:var(--accent-on);margin-top:auto;border-top:1px solid rgba(255,255,255,.42);padding-top:1.4vh">STATE: DEDICATED MATRIX SIDE</div>
-      </div>
+      <div class="card-fill" style="padding:3vh 1.8vw;display:flex;flex-direction:column;gap:1.4vh"><div class="t-meta">RVV</div><div class="h-md">拿向量拼矩阵</div><div class="body-sm">通用、生态连续，但指令数多，矩阵复用弱。</div><div class="t-meta" style="margin-top:auto;border-top:1px solid var(--grey-2);padding-top:1.4vh">STATE: VECTOR REGISTERS</div></div>
+      <div class="card-fill" style="padding:3vh 1.8vw;display:flex;flex-direction:column;gap:1.4vh"><div class="t-meta">IME</div><div class="h-md">矩阵语义进 ISA</div><div class="body-sm">矩阵仍住在 vector RF，性能受 VRF 容量、load bandwidth、端口压力约束。</div><div class="t-meta" style="margin-top:auto;border-top:1px solid var(--grey-2);padding-top:1.4vh">STATE: VRF + MATRIX FU</div></div>
+      <div class="card-accent" style="padding:3vh 1.8vw;display:flex;flex-direction:column;gap:1.4vh"><div class="t-meta" style="color:var(--accent-on)">AME</div><div class="h-md">矩阵自己有房子、有路、有厨房</div><div class="body-sm" style="opacity:.86">更容易围绕矩阵重做数据路径，但要处理 matrix/vector 边界、一致性和软件栈。</div><div class="t-meta" style="color:var(--accent-on);margin-top:auto;border-top:1px solid rgba(255,255,255,.42);padding-top:1.4vh">STATE: DEDICATED MATRIX SIDE</div></div>
     </div>
-
-    <div data-anim="up" class="t-meta" style="border-top:1px solid var(--grey-2);padding-top:1.4vh;margin-top:3vh">关键问题：固定资源预算下，哪条路径能更低成本地把矩阵单元喂饱？</div>
   </div>
 </section>
 
@@ -689,44 +805,20 @@
   <div class="canvas-card">
     <div class="chrome-min">
       <div class="l">XSAI / AME · WHAT TO MEASURE</div>
-      <div class="r">18 / 20</div>
+      <div class="r">32 / 34</div>
     </div>
-
     <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh;border-top:3px solid var(--accent);padding-top:2vh">
       <div class="t-meta">MEASURE THE DATA, THEN ADD HARDWARE</div>
       <h2 class="h-xl-zh">下一步不是先做复杂，而是先量清楚卡在哪里。</h2>
     </div>
-
     <div data-anim="up" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1vw;align-items:stretch;margin-top:4vh">
-      <div class="card-fill" style="padding:2.4vh 1.4vw">
-        <div class="t-meta">PATH</div>
-        <div class="h-md" style="margin-top:1vh">Shared L2 是否够喂 CUTE？</div>
-        <div class="body-sm" style="margin-top:1vh">统计 load stall、L2 bandwidth、working-set residency。</div>
-      </div>
-      <div class="card-accent" style="padding:2.4vh 1.4vw">
-        <div class="t-meta" style="color:var(--accent-on)">LOCALITY</div>
-        <div class="h-md" style="margin-top:1vh">是否需要 scratchpad / local memory？</div>
-        <div class="body-sm" style="margin-top:1vh;opacity:.86">看 tile 复用是否值得显式搬运。</div>
-      </div>
-      <div class="card-fill" style="padding:2.4vh 1.4vw">
-        <div class="t-meta">VECTOR</div>
-        <div class="h-md" style="margin-top:1vh">softmax / norm / RoPE 放哪里？</div>
-        <div class="body-sm" style="margin-top:1vh">量 matrix/vector 边界搬运次数。</div>
-      </div>
-      <div class="card-ink" style="padding:2.4vh 1.4vw">
-        <div class="t-meta">ISA / RUNTIME</div>
-        <div class="h-md" style="margin-top:1vh">是否需要 DMA、sync、layout 指令？</div>
-        <div class="body-sm" style="margin-top:1vh;opacity:.86">由 workload 证据驱动，而不是先拍脑袋扩展。</div>
-      </div>
+      <div class="card-fill" style="padding:2.4vh 1.4vw"><div class="t-meta">PATH</div><div class="h-md" style="margin-top:1vh">Shared L2 是否够喂 CUTE？</div><div class="body-sm" style="margin-top:1vh">统计 load stall、L2 bandwidth、working-set residency。</div></div>
+      <div class="card-accent" style="padding:2.4vh 1.4vw"><div class="t-meta" style="color:var(--accent-on)">LOCALITY</div><div class="h-md" style="margin-top:1vh">是否需要 scratchpad / local memory？</div><div class="body-sm" style="margin-top:1vh;opacity:.86">看 tile 复用是否值得显式搬运。</div></div>
+      <div class="card-fill" style="padding:2.4vh 1.4vw"><div class="t-meta">VECTOR</div><div class="h-md" style="margin-top:1vh">softmax / norm / RoPE 放哪里？</div><div class="body-sm" style="margin-top:1vh">量 matrix/vector 边界搬运次数。</div></div>
+      <div class="card-ink" style="padding:2.4vh 1.4vw"><div class="t-meta">ISA / RUNTIME</div><div class="h-md" style="margin-top:1vh">是否需要 DMA、sync、layout 指令？</div><div class="body-sm" style="margin-top:1vh;opacity:.86">由 workload 证据驱动。</div></div>
     </div>
-
     <div data-anim="up" style="margin-top:3vh;border-top:1px solid var(--grey-2);padding-top:2vh;display:grid;grid-template-columns:repeat(6,1fr);gap:1vw">
-      <div class="t-meta">tile setup latency</div>
-      <div class="t-meta">CUTE utilization</div>
-      <div class="t-meta">load stall</div>
-      <div class="t-meta">sync overhead</div>
-      <div class="t-meta">boundary copies</div>
-      <div class="t-meta">prefill / decode split</div>
+      <div class="t-meta">tile setup latency</div><div class="t-meta">CUTE utilization</div><div class="t-meta">load stall</div><div class="t-meta">sync overhead</div><div class="t-meta">boundary copies</div><div class="t-meta">prefill / decode split</div>
     </div>
   </div>
 </section>
@@ -737,52 +829,29 @@
       <div class="half b-accent" style="padding:5.6vh 3.6vw 4.4vh;justify-content:space-between;position:relative;overflow:hidden">
         <canvas class="ascii-bg" aria-hidden="true"></canvas>
         <div class="chrome-min" style="margin-bottom:0;position:relative;z-index:1">
-          <div class="l">19 / 20</div>
+          <div class="l">33 / 34</div>
           <div class="r">TAKEAWAYS</div>
         </div>
-
         <div data-anim="manifesto" style="display:flex;flex-direction:column;gap:2vh;position:relative;z-index:1">
           <div class="t-meta" style="color:rgba(255,255,255,.78);letter-spacing:.22em;margin-bottom:1.6vh">THREE RULES</div>
           <h2 style="font-family:var(--sans),var(--sans-zh);font-size:min(7.2vw,12.8vh);line-height:.96;letter-spacing:-.025em;font-weight:200;color:#fff">Data moves.<br/>Compiler plans.<br/>AME measures.</h2>
           <div style="font-family:var(--sans),var(--sans-zh);font-size:max(13px,1vw);line-height:1.6;color:rgba(255,255,255,.82);font-weight:300;max-width:38ch;margin-top:1.4vh">规则 tensor 流与动态 CPU 控制之间的边界，才是系统设计的主问题。</div>
         </div>
-
         <div data-anim="signature" style="display:flex;justify-content:space-between;align-items:end;border-top:1px solid rgba(255,255,255,.22);padding-top:2vh;position:relative;z-index:1">
           <div class="t-meta" style="color:rgba(255,255,255,.62)">FROM CACHE TO DATAFLOW</div>
-          <div class="t-meta" style="color:rgba(255,255,255,.62)">DRAFT V1</div>
+          <div class="t-meta" style="color:rgba(255,255,255,.62)">DRAFT V2</div>
         </div>
       </div>
-
       <div class="half" style="padding:5.6vh 3.6vw 4.4vh;justify-content:space-between">
         <div class="chrome-min">
           <div class="l">SUMMARY</div>
           <div class="r">03 TAKEAWAYS</div>
         </div>
-
         <div data-anim="rules" style="display:flex;flex-direction:column;gap:0">
-          <div style="display:grid;grid-template-columns:auto 1fr;gap:2vw;align-items:start;padding:2.6vh 0;border-top:1px solid var(--border-subtle)">
-            <div style="font-family:var(--sans);font-weight:200;font-size:min(4.4vw,7.8vh);line-height:.9;color:var(--text-primary)">01</div>
-            <div>
-              <h3 style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.8vw);line-height:1.2;letter-spacing:-.015em;color:var(--text-primary);margin-bottom:1vh">Data movement is the architecture.</h3>
-              <p style="font-family:var(--sans),var(--sans-zh);font-size:max(12px,.92vw);line-height:1.6;color:var(--text-secondary);font-weight:300">算力不是孤立指标，数据路径决定矩阵单元能不能被喂饱。</p>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:auto 1fr;gap:2vw;align-items:start;padding:2.6vh 0;border-top:1px solid var(--border-subtle)">
-            <div style="font-family:var(--sans);font-weight:200;font-size:min(4.4vw,7.8vh);line-height:.9;color:var(--text-primary)">02</div>
-            <div>
-              <h3 style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.8vw);line-height:1.2;letter-spacing:-.015em;color:var(--text-primary);margin-bottom:1vh">Compiler/runtime is part of the machine.</h3>
-              <p style="font-family:var(--sans),var(--sans-zh);font-size:max(12px,.92vw);line-height:1.6;color:var(--text-secondary);font-weight:300">tile、mapping、DMA、layout、sync 的决策越来越前移到软件栈。</p>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:auto 1fr;gap:2vw;align-items:start;padding:2.6vh 0;border-top:1px solid var(--border-subtle);border-bottom:2px solid var(--accent)">
-            <div style="font-family:var(--sans);font-weight:200;font-size:min(4.4vw,7.8vh);line-height:.9;color:var(--accent)">03</div>
-            <div>
-              <h3 style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.8vw);line-height:1.2;letter-spacing:-.015em;color:var(--accent);margin-bottom:1vh">XSAI/AME should evolve by evidence.</h3>
-              <p style="font-family:var(--sans),var(--sans-zh);font-size:max(12px,.92vw);line-height:1.6;color:var(--text-secondary);font-weight:300">shared L2 是合理起点；scratchpad、vector、DMA 和更多指令要由 workload 与 gem5 数据推动。</p>
-            </div>
-          </div>
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:2vw;align-items:start;padding:2.6vh 0;border-top:1px solid var(--border-subtle)"><div style="font-family:var(--sans);font-weight:200;font-size:min(4.4vw,7.8vh);line-height:.9;color:var(--text-primary)">01</div><div><h3 style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.8vw);line-height:1.2;letter-spacing:-.015em;color:var(--text-primary);margin-bottom:1vh">Data movement is the architecture.</h3><p style="font-family:var(--sans),var(--sans-zh);font-size:max(12px,.92vw);line-height:1.6;color:var(--text-secondary);font-weight:300">算力不是孤立指标，数据路径决定矩阵单元能不能被喂饱。</p></div></div>
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:2vw;align-items:start;padding:2.6vh 0;border-top:1px solid var(--border-subtle)"><div style="font-family:var(--sans);font-weight:200;font-size:min(4.4vw,7.8vh);line-height:.9;color:var(--text-primary)">02</div><div><h3 style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.8vw);line-height:1.2;letter-spacing:-.015em;color:var(--text-primary);margin-bottom:1vh">Compiler/runtime is part of the machine.</h3><p style="font-family:var(--sans),var(--sans-zh);font-size:max(12px,.92vw);line-height:1.6;color:var(--text-secondary);font-weight:300">tile、mapping、DMA、layout、sync 的决策越来越前移到软件栈。</p></div></div>
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:2vw;align-items:start;padding:2.6vh 0;border-top:1px solid var(--border-subtle);border-bottom:2px solid var(--accent)"><div style="font-family:var(--sans);font-weight:200;font-size:min(4.4vw,7.8vh);line-height:.9;color:var(--accent)">03</div><div><h3 style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.8vw);line-height:1.2;letter-spacing:-.015em;color:var(--accent);margin-bottom:1vh">XSAI/AME should evolve by evidence.</h3><p style="font-family:var(--sans),var(--sans-zh);font-size:max(12px,.92vw);line-height:1.6;color:var(--text-secondary);font-weight:300">shared L2 是合理起点；scratchpad、vector、DMA 和更多指令要由 workload 与 gem5 数据推动。</p></div></div>
         </div>
-
         <div data-anim="foot" class="t-meta" style="color:var(--text-helper);text-align:right">→ one more page · discussion</div>
       </div>
     </div>
@@ -793,45 +862,19 @@
   <div class="canvas-card">
     <div class="chrome-min">
       <div class="l">DISCUSSION · OPEN QUESTIONS</div>
-      <div class="r">20 / 20</div>
+      <div class="r">34 / 34</div>
     </div>
-
     <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
       <div class="t-meta">NEXT DISCUSSION</div>
-      <h2 class="h-xl-zh">四个问题留给组内讨论。</h2>
+      <h2 class="h-xl-zh">五个问题留给组内讨论。</h2>
     </div>
-
-    <div data-anim="up" class="sub-grid-3-2">
-      <div class="sub-card accent">
-        <div class="nb-corner">Q1</div>
-        <div class="ttl">Shared L2 是否够？</div>
-        <div class="desc">XSAI 的 AME 是长期依赖 shared L2，还是需要 scratchpad/local memory？</div>
-      </div>
-      <div class="sub-card">
-        <div class="nb-corner">Q2</div>
-        <div class="ttl">Vector/reduction 放哪里？</div>
-        <div class="desc">softmax、layernorm、RoPE、GELU/SiLU 是交给 CPU/RVV，还是放进 AME 侧？</div>
-      </div>
-      <div class="sub-card">
-        <div class="nb-corner">Q3</div>
-        <div class="ttl">软件暴露到什么粒度？</div>
-        <div class="desc">如果加入 DMA/async prefetch，ISA/runtime 应该暴露到 tile、stream 还是更细？</div>
-      </div>
-      <div class="sub-card">
-        <div class="nb-corner">Q4</div>
-        <div class="ttl">IME-like baseline 怎么做？</div>
-        <div class="desc">固定算力、VRF/L1/L2/load BW 后，如何公平比较 AME 与 IME？</div>
-      </div>
-      <div class="sub-card ink">
-        <div class="nb-corner">Q5</div>
-        <div class="ttl">哪些 kernel 先量？</div>
-        <div class="desc">batch=1 decode、small-batch GEMM、attention、norm/softmax 混合链路。</div>
-      </div>
-      <div class="sub-card">
-        <div class="nb-corner">END</div>
-        <div class="ttl">先量数据，再加硬件。</div>
-        <div class="desc">避免把所有趋势一次性塞进 XSAI，先让 workload 告诉我们最该建模和扩展的部分。</div>
-      </div>
+    <div data-anim="up" class="sub-grid-3-2" style="margin-top:4vh">
+      <div class="sub-card accent"><div class="nb-corner">Q1</div><div class="ttl">Shared L2 是否够？</div><div class="desc">XSAI 的 AME 是长期依赖 shared L2，还是需要 scratchpad/local memory？</div></div>
+      <div class="sub-card"><div class="nb-corner">Q2</div><div class="ttl">Vector/reduction 放哪里？</div><div class="desc">softmax、layernorm、RoPE、GELU/SiLU 是交给 CPU/RVV，还是放进 AME 侧？</div></div>
+      <div class="sub-card"><div class="nb-corner">Q3</div><div class="ttl">软件暴露到什么粒度？</div><div class="desc">如果加入 DMA/async prefetch，ISA/runtime 应该暴露到 tile、stream 还是更细？</div></div>
+      <div class="sub-card"><div class="nb-corner">Q4</div><div class="ttl">IME-like baseline 怎么做？</div><div class="desc">固定算力、VRF/L1/L2/load BW 后，如何公平比较 AME 与 IME？</div></div>
+      <div class="sub-card ink"><div class="nb-corner">Q5</div><div class="ttl">哪些 kernel 先量？</div><div class="desc">batch=1 decode、small-batch GEMM、attention、norm/softmax 混合链路。</div></div>
+      <div class="sub-card"><div class="nb-corner">READ</div><div class="ttl">完整阅读笔记</div><div class="desc"><a href="https://jensen-yan.github.io/research-notes/papers/AI-accelerators/" target="_blank" rel="noreferrer" style="color:inherit;text-decoration:none;border-bottom:1px solid currentColor">jensen-yan.github.io/research-notes/papers/AI-accelerators/</a></div></div>
     </div>
   </div>
 </section>
