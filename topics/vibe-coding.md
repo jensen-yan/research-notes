@@ -1,0 +1,31 @@
+https://guibesdev.medium.com/your-codebase-is-the-new-prompt-architecture-for-the-ai-era-8ad33d319489
+
+这个说的挺好
+决定AI 输出质量的，是你的代码块，而不是提示词。
+AI 是一个放大器，会放大已经存在的东西
+
+1. 深模块 优于  浅模块， 最好只暴露一点接口出来
+2. 垂直切片 >  水平分层， 用功能文件夹
+3. 拒绝大于500行的大文件
+4. 类型 能阻止AI 产生幻觉
+5. 规范，而非代码，是新的源代码，是基本单元-- grill me 来减少探索成本
+
+如果我要把一切压缩成一个心理画面：
+
+spec → types → tests → small files → vertical slices → AGENTS.md → ADRs  
+  ↓       ↓        ↓        ↓               ↓               ↓        ↓  
+  spec   shape   behavior  context cost  irrelevance   per-module   architectural  
+  grader grader  grader    low           low           context      memory
+
+https://github.com/mattpocock/skills
+安装了一下这个skills 试试
+感觉 CONTEXT.md 还挺重要，防止AI 一段时间后偏离之前的概念了
+然后grill-me 也挺好，强迫自己让AI修改之前都理解清楚了
+最后的TDD, DDD 也挺重要，此外多写垂直切片更好！
+
+最关键：不要让AI 随便写代码，一种不好的代码风格，会不断污染后续的代码生成，让拉屎拉的越来越多！！！所以一定要写之前三思，同时，需要一段时间后来重构一轮代码！
+
+关键skills:  Improve Codebase Architecture, grill me
+
+https://schristoph.online/blog/software-fundamentals-matter-more/
+
