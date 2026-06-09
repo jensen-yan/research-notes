@@ -29,3 +29,14 @@ https://github.com/mattpocock/skills
 
 https://schristoph.online/blog/software-fundamentals-matter-more/
 
+
+今天又看了泽文 GTOC 公众号的内容，感觉还是挺有启发的
+1. 再 生成 plan 之后，试着让AI 给自己出些题目，看看自己对AI 的plan, 各个约束度是否理解清楚了，coach mode, 不是给答案，而是不断互动，其实这个和 /grill me 还挺像的，也是确保自己的想法，在AI 生成代码之前，确保自己和它都理解并且对齐清楚了。
+2. 传统学习方法
+	1. 系统性理解一个概念，依赖自己检索能力，耗时长，但更能形成系统
+	2. 从一个点切入，在解决过程中不断补齐相关知识面，适合AI 协同项目，多试试
+3. 还可以再/goal 执行过程中，不要干别的项目，而是新开会话，试着反复追问它为何要做这些事情，有什么权衡，该如何学习理解它做的内容。
+	1. 主执行线程，不断写代码，沉淀执行类skills
+	2. 问答线程，不断学习文档，沉淀解释类和调试类skills，形成人类文档
+	3. new: 流程规范skills, 写commit message, coding style, 目录形式，review 习惯等
+
