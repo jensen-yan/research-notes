@@ -51,12 +51,12 @@ vector 配置推测执行
 如果csr写安装传统的串行，新值生效前必须排空流水线，那么当vl， vtype 频繁变化时候会性能很差，所以需要推测vl，vtype等，
 vtype 配置vma，vta，SEW，LMUL 等
 
-![[Pasted image 20260608162806.png]]
+![Pasted image 20260608162806](../../assets/Pasted%20image%2020260608162806.png)
 
 LMUL 分数，主要用于类型扩展，把8bit 扩展为16bit 情况
 
 
-![[Pasted image 20260608163307.png]]
+![Pasted image 20260608163307](../../assets/Pasted%20image%2020260608163307.png)
 这里向量mask
 VLEN=512，SEW=64，那么有8个元素，每个reg需要8bit来做mask
 而LMUL=8 时候，用低64bit做mask了

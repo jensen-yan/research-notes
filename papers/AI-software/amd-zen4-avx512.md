@@ -72,7 +72,7 @@ t=64   1735.05 GFLOPS
 t=96   3132.46 GFLOPS
 t=192  4021.80 GFLOPS
 ```
-![[Pasted image 20260526160900.png]]
+![Pasted image 20260526160900](../../assets/Pasted%20image%2020260526160900.png)
 上图是从1core to 192 core 的算力增长
 测试发现，
 1. FP64 理论最大能到8.9TFLOPS  ， GEMM 能到 4.55 TFLOPS, 接近一半了

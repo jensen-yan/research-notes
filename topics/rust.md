@@ -193,7 +193,7 @@ fn main() {
 2. rust 运行前编译检查，确保先定义再使用。
 3. 否则，未定义行为可能暂时不影响，但是未来可能出问题（C++ 通过santisizer 缓解）
 
-![[Pasted image 20260525145328.png|310]]
+![Pasted image 20260525145328](../assets/Pasted%20image%2020260525145328.png)
 1. 变量存在于frames 帧 ， frame = 单个作用域（例如函数） 内变量到值的映射
 2. frames 被组织成当前调用的函数的栈
 	eg: L2 中main frame 在plus_one frame 上面， 函数返回后后者被释放
@@ -208,7 +208,7 @@ fn main() {
 	2. 堆也自动释放（no free!）：如果某个变量拥有了一个box, 那么当rust 释放该变量的帧时候，rust 也释放该box 的堆内存。
 6. 使用Vec, String, HashMap 使用Box 来容纳可变数量元素
 7. 例如这里，所有权从frist, 到name, 到full 逐渐转移
-8. ![[Pasted image 20260525150716.png|567]]
+8. ![Pasted image 20260525150716](../assets/Pasted%20image%2020260525150716.png)
 9. 变量移动后不能被使用
 	1. 这里如果println!("{full}, {first}"); 会失败，first 作为String 类型，给别人后就不能访问了
 	2. 移动堆数据原则：如果变量x 把堆数据所有权移动给变量y, 那么x 在移动后不能再被使用
@@ -239,14 +239,14 @@ println!("Third element is {}", *num); // error!
 3. 拥有，O
 使用权限，确保当数据存在别名时候，不能被修改。
 默认是RO, mut 会添加RWO. 引用可以临时移除权限
-![[Pasted image 20260525153948.png|521]]
+![Pasted image 20260525153948](../assets/Pasted%20image%2020260525153948.png)
 这里先打印，后push 就可以。
 注意：num, * num 不同，前者表示引用自己，后者表示引用操作的对象
 权限是在位置上定义的，而不仅仅是变量。
 位置指放在赋值左侧的任何东西，位置包括 变量，位置解引用* a, 数组访问
 位置在不在使用时候，权限会丢失。只有在修改v 后再次使用num 才会有问题。
 任何时候使用位置时候，rust 期望当前位置拥有我操作需要的那个权限（类似一致性协议，你要写数据需要有W 权限才行）
-![[Pasted image 20260525160137.png|486]]&
+![Pasted image 20260525160137](../assets/Pasted%20image%2020260525160137.png)&
 &v[2] 要求有R 权限，push 要求有RW 权限
 然而此时字母W 空心，v 不具备W 权限，被num 借用了！编译失败。
 如果push 放在println 后面，就可以了，此时num 不再被使用了就释放了权限，这样v 重新获得了所有权限。

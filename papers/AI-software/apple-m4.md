@@ -64,8 +64,8 @@ https://docs.rs/crate/gemm-benchmark/latest
 3. FP32 SGEMM: 能使用矩阵扩展
 4. FP64 DGEMM: 只能使用neon 128
 
-![[Pasted image 20260526181922.png]]
-![[Pasted image 20260526181935.png|660]]
+![Pasted image 20260526181922](../../assets/Pasted%20image%2020260526181922.png)
+![Pasted image 20260526181935](../../assets/Pasted%20image%2020260526181935.png)
 
 能有几个结论，
 1. accelerate 分tile 机制和优化会比openblas 做的更好，算力高快一倍
